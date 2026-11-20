@@ -1,0 +1,124 @@
+/**
+ * SINGLE SOURCE OF TRUTH for every number, ID, price, contact and feature flag.
+ *
+ * Rules (from the build spec):
+ *  - Never invent values. Unknowns are `null` and are listed in CONTENT_GAPS.md.
+ *  - A `null` value hides the UI that depends on it in production, and renders a
+ *    clearly marked "content gap" placeholder in development.
+ *  - Components read from here; owners edit only this file to change numbers.
+ */
+
+export type I18n = { en: string; ml: string };
+
+export type SiteConfig = typeof siteConfig;
+
+export const siteConfig = {
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ltsfoundation.in",
+
+  org: {
+    name: "Live to Smile Foundation",
+    alternateName: "LTS Foundation",
+    brand: "Hunger Free Kasaragod",
+    /** GAP: street address not yet supplied. */
+    address: null as null | {
+      street: string;
+      locality: string;
+      district: string;
+      region: string;
+      postalCode: string;
+      country: "IN";
+    },
+    /** GAP: E.164 format, e.g. "+9194xxxxxxxx". */
+    phone: null as string | null,
+    /** GAP: E.164 digits only, used for wa.me links. */
+    whatsapp: null as string | null,
+    email: null as string | null,
+    foundingYear: null as number | null,
+    openingHours: null as string | null,
+    socials: {
+      x: "https://x.com/LTS_Foundation",
+      instagram: "https://www.instagram.com/live_to_smile_foundation",
+      website: "https://www.ltsfoundation.in",
+    },
+  },
+
+  /**
+   * Transcribed from a PHOTO of the brochure. Must be verified against original
+   * certificates. IDs render publicly ONLY when `verifiedOn` is set.
+   */
+  registrations: {
+    niti: "KL/2023/0346346",
+    twelveA: "AACTL2843C25KC01",
+    eightyG: "AACTL2843C25KC02",
+    csr1: "CSR00104723",
+    fcra: null as string | null,
+    verifiedOn: null as string | null, // ISO date, e.g. "2026-12-01"
+  },
+
+  award: {
+    title: {
+      en: "Partnership Award from the District Collector, Kasaragod",
+      ml: "കാസർഗോഡ് ജില്ലാ കലക്ടറിൽ നിന്നുള്ള പങ്കാളിത്ത പുരസ്കാരം",
+    } satisfies I18n,
+    presentedBy: "Shri Imbashekhar IAS, District Collector, Kasaragod",
+    /** GAP: confirm event name ("Accelerate Action"?) and date. */
+    eventName: null as string | null,
+    date: null as string | null,
+  },
+
+  impact: {
+    /** The ONLY confirmed number from the brochure. */
+    kitsPerMonth: 100,
+    mealsServed: null as number | null,
+    householdsReached: null as number | null,
+    foodRescuedKg: null as number | null,
+    yearsActive: null as number | null,
+    updatedOn: null as string | null,
+  },
+
+  donation: {
+    currency: "INR" as const,
+    tiers: [
+      { id: "day", label: { en: "Feed for 1 Day", ml: "ഒരു ദിവസത്തെ ഭക്ഷണം" }, amountINR: null as number | null },
+      { id: "tenDays", label: { en: "Feed for 10 Days", ml: "പത്ത് ദിവസത്തെ ഭക്ഷണം" }, amountINR: null as number | null },
+      { id: "month", label: { en: "Feed for 1 Month", ml: "ഒരു മാസത്തെ ഭക്ഷണം" }, amountINR: null as number | null },
+    ],
+    costPerMealINR: null as number | null,
+    costPerKitINR: null as number | null,
+    allowCustom: true,
+    minINR: 100,
+  },
+
+  /** GAP: how each rupee is used. Hidden until provided. */
+  fundsBreakdown: null as null | { label: I18n; percent: number }[],
+
+  foodRescue: {
+    /** GAP: e.g. "within 30 minutes". Shown on the form when set. */
+    responseTime: null as I18n | null,
+  },
+
+  /** Places named in the brochure. Coordinates are public town centres (approximate). */
+  places: [
+    { id: "kasaragod", name: { en: "Kasaragod", ml: "കാസർഗോഡ്" }, lat: 12.4996, lng: 74.9869, kind: "hub" },
+    { id: "cherkala", name: { en: "Cherkala", ml: "ചെർക്കള" }, lat: 12.5167, lng: 75.0667, kind: "hub" },
+    { id: "kanhangad", name: { en: "Kanhangad", ml: "കാഞ്ഞങ്ങാട്" }, lat: 12.3156, lng: 75.0939, kind: "hub" },
+    { id: "interiors", name: { en: "Remote interiors", ml: "ഉൾനാടൻ ഗ്രാമങ്ങൾ" }, lat: 12.42, lng: 75.22, kind: "area" },
+    { id: "wayanad", name: { en: "Wayanad (relief)", ml: "വയനാട് (ദുരിതാശ്വാസം)" }, lat: 11.6854, lng: 76.132, kind: "relief" },
+  ],
+
+  /** Optional hero media. Leave null until a consented 6–10 s loop is supplied. */
+  heroMedia: null as null | { mp4: string; webm?: string; poster: string; alt: I18n },
+
+  features: {
+    ledger: true,
+    uploads: false, // needs Supabase + moderation (Phase 4)
+    recurring: false, // needs Razorpay subscriptions (Phase 4)
+    foreignDonations: false, // needs FCRA confirmation
+  },
+};
+
+/** Show content-gap placeholders? Always in dev; in prod only when explicitly asked. */
+export const showGaps =
+  process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_SHOW_CONTENT_GAPS === "true";
+
+export const registrationsVerified = Boolean(siteConfig.registrations.verifiedOn);

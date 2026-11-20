@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "homeTitle": "Hunger Free Kasaragod | Free Food Distribution NGO",
+    "homeDescription": "Live to Smile Foundation rescues surplus food and serves free meals and ration kits across Kasaragod, Cherkala and Kanhangad. Donate or volunteer today.",
+    "programsTitle": "Our Food Programs in Kasaragod | Hunger Free",
+    "programsDescription": "Daily breakfasts, monthly grocery kits, Food On Call and surplus food rescue. See how Hunger Free Kasaragod feeds people across the district.",
+    "siteName": "Hunger Free Kasaragod"
+  },
+  "common": {
+    "skip": "Skip to main content",
+    "donate": "Donate",
+    "giveSurplus": "Give Surplus Food",
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "home": "Home",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language",
+    "switchTo": "മലയാളം",
+    "switchToLabel": "Switch to Malayalam",
+    "copy": "Copy",
+    "copied": "Copied",
+    "area": "Area",
+    "gap": "Content gap",
+    "comingSoonTitle": "This page is on its way",
+    "comingSoonBody": "We are building this part of the site. In the meantime you can explore our programs or go back home.",
+    "notFoundTitle": "We couldn't find that page",
+    "notFoundBody": "The link may be old or mistyped. Here are some places to start.",
+    "donateShort": "Donate"
+  },
+  "nav": {
+    "programs": "Programs",
+    "impact": "Impact",
+    "foodRescue": "Food Rescue",
+    "gallery": "Gallery",
+    "resources": "Resources",
+    "about": "About",
+    "makeAnImpact": "Make an Impact",
+    "requestHelp": "Request Help",
+    "volunteer": "Volunteer",
+    "contact": "Contact",
+    "ledger": "Distribution Ledger",
+    "transparency": "Transparency",
+    "faq": "FAQ",
+    "stories": "Stories",
+    "press": "Press",
+    "partner": "Partner with us",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "trustBar": "80G tax benefit · 12A registered · NITI Aayog (NGO Darpan)",
+  "hero": {
+    "eyebrow": "Live to Smile Foundation · Kasaragod, Kerala",
+    "title": "Hunger Free Kasaragod",
+    "sub": "Fresh meals, grocery kits and rescued celebration food, delivered with dignity across Kasaragod, Cherkala and Kanhangad.",
+    "scroll": "Scroll to explore"
+  },
+  "numbers": {
+    "heading": "Kasaragod, by the numbers",
+    "kits": "grocery kits every month",
+    "programs": "programs serving the district",
+    "towns": "towns with daily breakfast runs",
+    "meals": "meals served",
+    "households": "households reached",
+    "rescued": "kg of surplus food rescued",
+    "years": "years of service",
+    "updated": "Last updated {date}",
+    "proof": "See the distribution ledger"
+  },
+  "intro": {
+    "label": "Who we are",
+    "text": "Live to Smile Foundation is a Kasaragod-based charitable organisation serving food, shelter, education and care to people who need it most. Through Hunger Free Kasaragod we deliver fresh breakfasts, grocery kits and rescued celebration food across Kasaragod, Cherkala and Kanhangad, and into remote villages that urban aid often overlooks."
+  },
+  "story": {
+    "label": "Our story",
+    "heading": "How it started, and where we are today"
+  },
+  "day": {
+    "label": "A day with us",
+    "heading": "From first light to late evening",
+    "dawn": "Dawn",
+    "dawnTitle": "Warm breakfasts on the street",
+    "dawnBody": "Before the city wakes, fresh breakfasts are served to people living on the streets of Kasaragod, Cherkala and Kanhangad.",
+    "midday": "Midday",
+    "middayTitle": "Grocery kits reach the interiors",
+    "middayBody": "Grocery kits travel to 100 households in remote villages, and Food On Call answers families that urban aid overlooks.",
+    "evening": "Evening",
+    "eveningTitle": "Celebrations become shared meals",
+    "eveningBody": "As weddings and birthdays wind down, surplus food is collected, packed and kept cold for the next distribution."
+  },
+  "programs": {
+    "label": "What we do",
+    "heading": "Nine programs, one promise",
+    "sub": "Every program starts from the same idea: food and care, served with dignity.",
+    "all": "All programs",
+    "howItWorks": "How it works",
+    "areasServed": "Areas served",
+    "supportThis": "Support this program",
+    "next": "Next program",
+    "prev": "Previous program"
+  },
+  "rescue": {
+    "label": "Celebrating Together",
+    "heading": "Your celebration can feed a neighbourhood",
+    "sub": "Weddings and birthdays often end with good food left over. We make sure it reaches people who need it, safely.",
+    "collect": "Collect",
+    "collectBody": "Our team arrives promptly, transfers unserved dishes into food-grade containers, and keeps them safe and fresh.",
+    "pack": "Pack",
+    "packBody": "Food is organised into eco-friendly, ready-to-eat meal packets.",
+    "distribute": "Distribute",
+    "distributeBody": "Dedicated vehicles and a refrigerated hub keep food at the right temperature for same-day or next-day delivery.",
+    "safe": "Kept cold in our refrigerated hub",
+    "formTitle": "Book a pickup",
+    "date": "Event date",
+    "areaLabel": "Area",
+    "servings": "Approx. servings",
+    "cta": "Continue booking",
+    "areaOther": "Other place in Kasaragod"
+  },
+  "gallery": {
+    "label": "Gallery",
+    "heading": "Moments from the field",
+    "all": "All",
+    "play": "Play video",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "ledger": {
+    "label": "Quantity · Place · Date",
+    "heading": "The distribution ledger",
+    "sub": "A public, dated record of every distribution. Every number on this site traces back here.",
+    "date": "Date",
+    "place": "Place",
+    "program": "Program",
+    "quantity": "Quantity",
+    "full": "Open the full ledger",
+    "units": {
+      "meals": "meals",
+      "kits": "kits",
+      "blankets": "blankets",
+      "kg": "kg"
+    }
+  },
+  "map": {
+    "label": "Where we work",
+    "heading": "Across Kasaragod district, and beyond when needed",
+    "hub": "Daily breakfast hub",
+    "area": "Food On Call and grocery kits",
+    "relief": "Disaster relief",
+    "listHeading": "Places we serve",
+    "sea": "Arabian Sea",
+    "caption": "Illustrative map · pins at approximate town centres"
+  },
+  "impactHub": {
+    "label": "Make an impact",
+    "heading": "Every kind of help has a place here",
+    "donate": "Donate",
+    "donateBody": "One-time support for meals and grocery kits.",
+    "sponsor": "Sponsor a Day",
+    "sponsorBody": "Fund a day of meals, in celebration or in memory of someone.",
+    "surplus": "Give Surplus Food",
+    "surplusBody": "Hosting a wedding or birthday? We'll pick up what's left.",
+    "volunteer": "Volunteer",
+    "volunteerBody": "Pack, serve, drive, photograph, translate or build.",
+    "celebrate": "Celebrate with a Meal",
+    "celebrateBody": "Ask for meals instead of gifts on your special day.",
+    "partner": "Partner with us",
+    "partnerBody": "Companies, caterers, hotels and halls working together.",
+    "share": "Share Your Moment",
+    "shareBody": "Show how you helped and inspire someone else.",
+    "spread": "Spread the Word",
+    "spreadBody": "Share Hunger Free Kasaragod with friends on WhatsApp.",
+    "whatsappText": "Hunger Free Kasaragod serves free meals and grocery kits across Kasaragod. See how you can help:"
+  },
+  "donate": {
+    "label": "Donate",
+    "heading": "Feed someone in Kasaragod today",
+    "custom": "Any amount",
+    "customBody": "Choose what feels right for you. Every rupee goes toward meals and grocery kits.",
+    "choose": "Choose",
+    "provides": "Provides about {count} meals",
+    "secure": "Secure payment"
+  },
+  "share": {
+    "label": "Share your moment",
+    "heading": "Celebrated with a meal? Tell us about it.",
+    "body": "Served breakfast, sponsored a day or gave your wedding's surplus food? Share a photo and a few words. Every submission is reviewed before it appears.",
+    "cta": "Share your moment"
+  },
+  "stories": {
+    "label": "Stories",
+    "heading": "People behind every plate"
+  },
+  "trust": {
+    "label": "Trust and recognition",
+    "heading": "Registered, recognised, accountable",
+    "niti": "NITI Aayog (NGO Darpan)",
+    "twelveA": "12A registration",
+    "eightyG": "80G tax exemption",
+    "csr1": "CSR-1 registration",
+    "copyId": "Copy ID",
+    "award": "Recognition",
+    "transparency": "See how we stay transparent"
+  },
+  "resources": {
+    "label": "Resources",
+    "heading": "Documents and press",
+    "download": "Download",
+    "all": "All resources"
+  },
+  "faq": {
+    "label": "FAQ",
+    "heading": "Questions people ask us",
+    "all": "All questions"
+  },
+  "finalCta": {
+    "heading": "No one in Kasaragod should sleep hungry.",
+    "body": "A wedding feast, a birthday cake, a month of groceries. Whatever you can share, someone in Kasaragod is waiting for it."
+  },
+  "footer": {
+    "tagline": "Every meal, served with dignity.",
+    "explore": "Explore",
+    "getInvolved": "Get involved",
+    "about": "About",
+    "follow": "Follow us",
+    "registrations": "Registrations",
+    "rights": "© {year} Live to Smile Foundation. All rights reserved.",
+    "credit": "Made with care in Kasaragod."
+  }
+}

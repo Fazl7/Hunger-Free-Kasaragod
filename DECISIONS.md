@@ -1,0 +1,28 @@
+# Decisions
+
+Choices made while building, with reasons. When the spec was ambiguous, the best option was chosen and recorded here (spec §0.6).
+
+| # | Decision | Why |
+|---|---|---|
+| 1 | **Next.js 16** (App Router) instead of the spec's Next.js 15 | Next 15 depends on a PostCSS version with open high-severity advisories (GHSA-qx2v-qp2m-jg93 and others); the fix requires Next 16. Same App Router model, React 19.2. `npm audit`: 0 vulnerabilities. Middleware is now `src/proxy.ts` (Next 16 naming). |
+| 2 | Locale-prefixed URLs (`/en/...`, `/ml/...`) with `localeDetection: false` | Spec §14: path-based locales, never auto-redirect crawlers. `/` → `/en` (307, issued by next-intl). |
+| 3 | Content lives in typed TS/JSON under `/content` (no CMS yet) | Spec allows a JSON fallback so the site builds with no CMS. TS gives the owner type errors instead of silent breakage. Sanity can replace `content/collections.ts` later without touching components. Program copy is TS rather than MDX for the same reason. |
+| 4 | **Unknowns are `null` and hidden in production**; dev shows a dashed "Content gap" note (`<GapNote>`) | Spec non-negotiable: never invent facts. Set `NEXT_PUBLIC_SHOW_CONTENT_GAPS=true` to see the notes in a production build. |
+| 5 | Registration IDs hidden until `registrations.verifiedOn` is set | They were transcribed from a photo; a typo on a tax-exemption ID is a credibility and legal risk. The 80G trust bar, footer IDs and JSON-LD identifiers all switch on together. |
+| 6 | Numbers strip shows **100 kits/month**, **9 programs** and **3 breakfast towns** | All three come straight from the brochure (one stated, two counted). Other stats appear automatically once supplied. |
+| 7 | **No animation library.** Scroll effects use a 40-line `useScrollProgress` hook that writes CSS variables directly; entrance reveals are one shared IntersectionObserver + CSS | `motion` cost ~55 KB gzipped and Lighthouse mobile performance suffered. The spec's GSAP/Framer/Lenis stack would cost more. Same effects (pinned horizontal story with sun arc, scroll-lit intro words, self-drawing route with driving van), at a fraction of the JS and with no per-frame React renders. |
+| 8 | Lenis smooth scroll **not used** | Spec §12: accessibility > performance > animation. Native scrolling keeps anchor links, find-in-page and keyboard scrolling intact. |
+| 9 | Reveal animations hide content **only under `html.js`** and never above the fold | Content is visible to crawlers and no-JS users. Hero text uses transform-only CSS animation so LCP never waits for JavaScript. |
+| 10 | Intro "word highlight" animates **colour between two AA-passing shades**, not opacity | Opacity-faded text fails contrast. `#8C8279` on cream ≈ 3.6:1 (AA large text). |
+| 11 | "A Day With Us" pinned horizontal scroll only on `lg+` with motion allowed; otherwise a vertical stack | Spec §7 S5. No scroll-jacking on phones or for reduced-motion users. |
+| 12 | Service map is a hand-drawn SVG with pins projected from real town-centre coordinates, plus a text list | No map library/tiles on the home page (performance). Labelled "illustrative" because the coastline is stylised. MapLibre can be added on `/impact`, loaded on interaction. |
+| 13 | Hero uses an illustration (bowl + steam + program badges) until a consented video is supplied | `site.config.heroMedia` switches to `<HeroVideo>` automatically (poster first, video after `load`, never on Save-Data or reduced motion). |
+| 14 | "Share Your Moment" teaser uses decorative illustrated frames, never sample "user" photos | Fake UGC would be a fabricated testimonial. |
+| 15 | FAQ answers that depend on unconfirmed facts are flagged `needsConfirmation` and excluded from the page **and** the FAQPage JSON-LD | Accuracy over completeness. |
+| 16 | Fonts: Fraunces (headings, no extra axes), Poppins 400/500/600 (body), Noto Sans Malayalam (ML only). The "മലയാളം" toggle on English pages uses the OS Malayalam font | Fraunces' SOFT/opsz axes added ~80 KB; loading Noto Malayalam just to draw one word on English pages added 88 KB. The `₹` glyph is set in the sans face to avoid pulling Fraunces latin-ext (104 KB). |
+| 17 | Phase 3–4 routes exist as a temporary `[page]` stub (noindex, excluded from sitemap) | Navigation never 404s during development. Creating a real folder (e.g. `app/[locale]/donate/`) overrides the stub automatically. |
+| 18 | AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended) **allowed** in robots.txt; `/llms.txt` published | Spec §10.5 default. Owner may opt out: edit `src/app/robots.ts`. |
+| 19 | Security headers (HSTS, nosniff, Referrer-Policy, X-Frame-Options, Permissions-Policy) set in `next.config.ts`. **CSP not yet set** | A nonce-based CSP needs the Razorpay/analytics origins finalised in Phase 4–5. |
+| 20 | JS budget: spec asks for ≤ 150 KB gz on Home; current is ~175 KB, of which ~115 KB is the React 19 + Next.js framework baseline | Cannot go lower without leaving Next.js. App code + i18n ≈ 60 KB. Revisit in Phase 5 (e.g. trim next-intl client messages, split below-fold islands). |
+| 21 | Ledger, gallery, stories and documents render **only verified / consented** records (`verified: true`, `consent: true`, `consentOnFile: true`) | Spec §1 dignity-first and truthful. |
+| 22 | Malayalam copy is my DRAFT translation | Marked `needsNativeReview`; launch-blocking in CONTENT_GAPS.md. |
