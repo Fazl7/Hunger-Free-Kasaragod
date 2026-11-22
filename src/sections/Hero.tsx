@@ -1,7 +1,6 @@
 import { Fragment, type CSSProperties } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { siteConfig } from "@content/site.config";
-import { ButtonLink } from "@/components/ui/Button";
 import { Icon, type IconKey } from "@/components/icons/Icon";
 import { HeroVideo } from "@/components/media/HeroVideo";
 import { tr } from "@/lib/utils";
@@ -9,7 +8,6 @@ import { tr } from "@/lib/utils";
 /** S1. Hero: word-mask H1 (pure CSS, so nothing on the LCP path waits for JS). */
 export async function Hero() {
   const t = await getTranslations("hero");
-  const c = await getTranslations("common");
   const locale = await getLocale();
   const words = t("title").split(" ");
   const media = siteConfig.heroMedia;
@@ -50,14 +48,6 @@ export async function Hero() {
             {t("sub")}
           </p>
 
-          <div className="hero-rise mt-9 flex flex-wrap gap-3" style={{ "--d": ".45s" } as CSSProperties}>
-            <ButtonLink href="/donate" variant="donate" icon="arrowRight">
-              {c("donate")}
-            </ButtonLink>
-            <ButtonLink href="/food-rescue" variant="outline" icon="van">
-              {c("giveSurplus")}
-            </ButtonLink>
-          </div>
         </div>
 
         {media ? (
@@ -85,10 +75,9 @@ export async function Hero() {
 /** Illustrated hero used until a consented hero video is supplied. */
 function HeroIllustration() {
   const badges: { icon: IconKey; cls: string; delay: string }[] = [
-    { icon: "kit", cls: "top-[8%] left-[2%] bg-cream text-maroon", delay: "0s" },
+    { icon: "plate", cls: "top-[8%] left-[2%] bg-cream text-maroon", delay: "0s" },
     { icon: "van", cls: "top-[14%] right-[4%] bg-mustard text-ink", delay: "1.2s" },
-    { icon: "heart", cls: "bottom-[16%] left-[-2%] bg-leaf text-cream", delay: "2.1s" },
-    { icon: "blanket", cls: "bottom-[8%] right-[6%] bg-cream text-purple", delay: "0.7s" },
+    { icon: "kit", cls: "bottom-[16%] left-[-2%] bg-leaf text-cream", delay: "2.1s" },
   ];
   return (
     <div aria-hidden className="hero-rise relative mx-auto aspect-square w-full max-w-[34rem]" style={{ "--d": ".15s" } as CSSProperties}>

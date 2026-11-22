@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-type Pin = { id: string; name: string; kind: "hub" | "area" | "relief"; kindLabel: string; lat: number; lng: number };
+type Pin = { id: string; name: string; kind: "hub" | "area"; kindLabel: string; lat: number; lng: number };
 
 // Simple equirectangular projection of the Kasaragod district bounding box into the SVG.
 const BOX = { minLng: 74.85, maxLng: 75.45, minLat: 12.05, maxLat: 12.8 };
@@ -13,13 +13,11 @@ const project = (lat: number, lng: number) => ({
   y: ((BOX.maxLat - lat) / (BOX.maxLat - BOX.minLat)) * H,
 });
 
-const colors = { hub: "#F2B705", area: "#FFF8E7", relief: "#F28A05" };
+const colors = { hub: "#F2B705", area: "#FFF8E7" };
 
 export function MapPins({ pins, seaLabel }: { pins: Pin[]; seaLabel: string }) {
   const [active, setActive] = useState<string | null>("kasaragod");
-  const local = pins.filter((p) => p.kind !== "relief");
-  const relief = pins.find((p) => p.kind === "relief");
-  const hubs = local.filter((p) => p.kind === "hub").map((p) => project(p.lat, p.lng));
+  const hubs = pins.filter((p) => p.kind === "hub").map((p) => project(p.lat, p.lng));
 
   return (
     <div className="relative">
@@ -58,7 +56,7 @@ export function MapPins({ pins, seaLabel }: { pins: Pin[]; seaLabel: string }) {
           />
         )}
 
-        {local.map((p) => {
+        {pins.map((p) => {
           const { x, y } = project(p.lat, p.lng);
           const on = active === p.id;
           return (
@@ -81,20 +79,9 @@ export function MapPins({ pins, seaLabel }: { pins: Pin[]; seaLabel: string }) {
         })}
       </svg>
 
-      {/* Wayanad: far south, shown as an inset "beyond the district" card */}
-      {relief && (
-        <div className="absolute right-3 bottom-3 rounded-2xl bg-cream/10 p-3 text-sm ring-1 ring-cream/20 backdrop-blur">
-          <span className="flex items-center gap-2 font-semibold">
-            <span aria-hidden className="size-2.5 rounded-full" style={{ background: colors.relief }} />
-            {relief.name}
-          </span>
-          <span className="text-cream/70">{relief.kindLabel} ↓</span>
-        </div>
-      )}
-
       {/* Focusable pins for keyboard users (the list beside the map is the full text alternative) */}
       <div className="mt-4 flex flex-wrap gap-2">
-        {local.map((p) => (
+        {pins.map((p) => (
           <button
             key={p.id}
             type="button"

@@ -9,20 +9,21 @@ import { Intro } from "@/sections/Intro";
 import { OurStory } from "@/sections/OurStory";
 import { DayWithUs } from "@/sections/DayWithUs";
 import { ProgramsShowcase } from "@/sections/ProgramsShowcase";
-import { CelebratingTogether } from "@/sections/CelebratingTogether";
 import { GallerySection } from "@/sections/GallerySection";
 import { LedgerPreview } from "@/sections/LedgerPreview";
 import { ServiceMap } from "@/sections/ServiceMap";
-import { MakeAnImpact } from "@/sections/MakeAnImpact";
-import { DonateTiers } from "@/sections/DonateTiers";
 import { ShareMoment } from "@/sections/ShareMoment";
 import { StoriesSection } from "@/sections/StoriesSection";
 import { TrustSection } from "@/sections/TrustSection";
-import { ResourcesSection } from "@/sections/ResourcesSection";
+import { PressSection } from "@/sections/PressSection";
+import { LatestVideos } from "@/sections/LatestVideos";
 import { FaqSection } from "@/sections/FaqSection";
 import { FinalCta } from "@/sections/FinalCta";
 
 type Props = { params: Promise<{ locale: string }> };
+
+// Live sections (counters, videos, press) refresh on demand; this is the fallback window.
+export const revalidate = 300;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -30,10 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildMetadata({ locale, path: "/", title: t("homeTitle"), description: t("homeDescription"), absoluteTitle: true });
 }
 
-/**
- * Home: section order follows the owner's brief: numbers first → intro → story →
- * gallery → quantity/place/date → personal upload → make an impact.
- */
+/** Home: the hunger statement leads, followed by proof, the three pathways and stories. */
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -43,19 +41,17 @@ export default async function HomePage({ params }: Props) {
       <Hero />
       <NumbersStrip />
       <Intro />
+      <ProgramsShowcase />
       <OurStory />
       <DayWithUs />
-      <ProgramsShowcase />
-      <CelebratingTogether />
       <GallerySection />
+      <LatestVideos />
       <LedgerPreview />
       <ServiceMap />
-      <MakeAnImpact />
-      <DonateTiers />
       <ShareMoment />
       <StoriesSection />
       <TrustSection />
-      <ResourcesSection />
+      <PressSection />
       <FaqSection />
       <FinalCta />
       <JsonLd data={graph(donateActionSchema(locale))} />

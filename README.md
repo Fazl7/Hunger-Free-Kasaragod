@@ -35,6 +35,10 @@ Requires Node 20+.
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin (default `https://www.ltsfoundation.in`) |
 | `NEXT_PUBLIC_SHOW_CONTENT_GAPS` | `true` to show content-gap notes in a production build |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL (ledger, videos, press, admin) |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase **publishable/anon** key (public by design; RLS protects data) |
+
+Live features (Distribution Ledger, Video Gallery, Press Releases, `/admin`): see **`docs/SUPABASE_SETUP.md`**. Database schema: `supabase/schema.sql`.
 
 ## Status
 

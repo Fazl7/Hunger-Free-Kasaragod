@@ -13,13 +13,13 @@ import { tr } from "@/lib/utils";
 export async function ServiceMap() {
   const t = await getTranslations("map");
   const locale = await getLocale();
-  const kinds = { hub: t("hub"), area: t("area"), relief: t("relief") } as const;
+  const kinds = { hub: t("hub"), area: t("area") } as const;
 
   const pins = siteConfig.places.map((p) => ({
     id: p.id,
     name: tr(p.name, locale),
-    kind: p.kind as keyof typeof kinds,
-    kindLabel: kinds[p.kind as keyof typeof kinds],
+    kind: p.kind as "hub" | "area",
+    kindLabel: kinds[p.kind as "hub" | "area"],
     lat: p.lat,
     lng: p.lng,
   }));

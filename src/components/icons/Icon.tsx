@@ -76,6 +76,33 @@ const paths = {
   arrowRight: <path d="M4.5 12h15M13.5 6l6 6-6 6" />,
   arrowLeft: <path d="M19.5 12h-15M10.5 6l-6 6 6 6" />,
   arrowDown: <path d="M12 4.5v15M6 13.5l6 6 6-6" />,
+  arrowUp: <path d="M12 19.5v-15M6 10.5l6-6 6 6" />,
+  edit: (
+    <>
+      <path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z" />
+      <path d="M13.5 6.5l4 4" />
+    </>
+  ),
+  trash: (
+    <>
+      <path d="M4 7h16M9.5 7V4.5h5V7M6 7l1 13h10l1-13" />
+      <path d="M10 11v5M14 11v5" />
+    </>
+  ),
+  grip: <path d="M9 5.5h.01M15 5.5h.01M9 12h.01M15 12h.01M9 18.5h.01M15 18.5h.01" strokeWidth={3} />,
+  star: <path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z" />,
+  eye: (
+    <>
+      <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  eyeOff: (
+    <>
+      <path d="M4 4l16 16M10 5.7A9.6 9.6 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a17 17 0 0 1-2.6 3.4M6.5 7.5A16 16 0 0 0 2.5 12S6 18.5 12 18.5c1.6 0 3-.4 4.2-1" />
+      <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2" />
+    </>
+  ),
   menu: <path d="M3.5 7h17M3.5 12h17M3.5 17h17" />,
   close: <path d="M6 6l12 12M18 6 6 18" />,
   copy: (
@@ -172,6 +199,9 @@ const paths = {
 } as const;
 
 export type IconKey = keyof typeof paths;
+
+/** Narrow an icon name coming from the database (falls back gracefully when unknown). */
+export const isIconKey = (s: string): s is IconKey => Object.prototype.hasOwnProperty.call(paths, s);
 
 export function Icon({ name, size = 24, ...rest }: { name: IconKey; size?: number } & SVGProps<SVGSVGElement>) {
   return (

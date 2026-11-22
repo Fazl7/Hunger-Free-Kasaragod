@@ -5,7 +5,7 @@ import { ProgramCard } from "@/components/ui/ProgramCard";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 
-/** S6. Programs: 9 cards in brochure colours, in the order the spec requires. */
+/** The three core food pathways shown prominently on the home page. */
 export async function ProgramsShowcase() {
   const t = await getTranslations("programs");
   const locale = await getLocale();

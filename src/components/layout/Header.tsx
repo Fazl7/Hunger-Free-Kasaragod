@@ -13,13 +13,13 @@ const primary = [
   { href: "/impact", key: "impact" },
   { href: "/food-rescue", key: "foodRescue" },
   { href: "/gallery", key: "gallery" },
-  { href: "/resources", key: "resources" },
+  { href: "/press", key: "press" },
 ] as const;
 
 const secondary = [
   { href: "/about", key: "about" },
   { href: "/make-an-impact", key: "makeAnImpact" },
-  { href: "/distribution-ledger", key: "ledger" },
+  { href: "/ledger", key: "ledger" },
   { href: "/request-help", key: "requestHelp" },
   { href: "/volunteer", key: "volunteer" },
   { href: "/contact", key: "contact" },

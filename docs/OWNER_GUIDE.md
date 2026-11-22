@@ -21,7 +21,7 @@ The IDs then appear in the trust section, footer, top bar and search-engine data
 { id: "2026-12-01-kasaragod", date: "2026-12-01", place: "kasaragod", program: "daily-food",
   quantity: 120, unit: "meals", verified: true },
 ```
-`place` is one of `kasaragod`, `cherkala`, `kanhangad`, `interiors`, `wayanad`. `program` is a program slug.
+`place` is typically `kasaragod`, `cherkala`, `kanhangad`, or `interiors`. `program` is a program slug.
 
 ## Add photos or videos
 Put files in `public/images/` (`.webp`/`.avif`, descriptive names like `breakfast-distribution-kasaragod.webp`), then add to `gallery` in `content/collections.ts`. **Set `consent: true` only when you have written consent from everyone identifiable.** Items without consent are never shown.

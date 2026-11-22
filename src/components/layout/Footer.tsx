@@ -16,7 +16,7 @@ export async function Footer() {
       links: [
         ["/programs", t("nav.programs")],
         ["/impact", t("nav.impact")],
-        ["/distribution-ledger", t("nav.ledger")],
+        ["/ledger", t("nav.ledger")],
         ["/gallery", t("nav.gallery")],
         ["/stories", t("nav.stories")],
       ],
@@ -36,7 +36,7 @@ export async function Footer() {
       links: [
         ["/about", t("nav.about")],
         ["/transparency", t("nav.transparency")],
-        ["/resources", t("nav.resources")],
+        ["/press", t("nav.press")],
         ["/faq", t("nav.faq")],
         ["/contact", t("nav.contact")],
       ],

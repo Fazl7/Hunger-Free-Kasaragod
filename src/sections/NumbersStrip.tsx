@@ -7,21 +7,40 @@ import { Reveal } from "@/components/motion/Reveal";
 import { GapNote } from "@/components/ui/GapNote";
 import { Icon, type IconKey } from "@/components/icons/Icon";
 import { formatDate } from "@/lib/utils";
+import { supabaseConfigured } from "@/lib/supabase/env";
+import { getImpactStats } from "@/lib/data";
+import { LiveNumbers } from "./LiveNumbers";
 
 const lgCols: Record<number, string> = { 1: "lg:grid-cols-1", 2: "lg:grid-cols-2", 3: "lg:grid-cols-3", 4: "lg:grid-cols-4" };
 
 /**
- * S2. "Numerical start". Only verifiable figures are shown:
- *  - 100 kits/month (brochure), 9 programs (brochure), 3 breakfast towns (brochure).
- *  - Every other stat comes from site.config.impact and is hidden while null.
+ * S2. "Numerical start".
+ *  - With Supabase configured: live Kits given / Days since started / Foods
+ *    distributed from get_impact_stats() (<LiveNumbers/>, same design).
+ *  - Without it (fallback): only verifiable brochure figures from site.config.
  */
 export async function NumbersStrip() {
   const t = await getTranslations("numbers");
   const locale = await getLocale();
+
+  if (supabaseConfigured) {
+    const stats = await getImpactStats();
+    return (
+      <section id="numbers" aria-labelledby="numbers-title" className="relative z-10 -mt-16 pb-8">
+        <div className="container-page">
+          <h2 id="numbers-title" className="sr-only">{t("heading")}</h2>
+          <Reveal variant="up">
+            <LiveNumbers initial={stats} />
+          </Reveal>
+        </div>
+      </section>
+    );
+  }
+
   const { impact, places } = siteConfig;
 
   const stats: { value: number | null; label: string; icon: IconKey; suffix?: string }[] = [
-    { value: impact.kitsPerMonth, label: t("kits"), icon: "kit" },
+    { value: impact.monthlyKitTarget, label: t("kits"), icon: "kit" },
     { value: impact.mealsServed, label: t("meals"), icon: "plate", suffix: "+" },
     { value: impact.householdsReached, label: t("households"), icon: "heart", suffix: "+" },
     { value: impact.foodRescuedKg, label: t("rescued"), icon: "van" },
@@ -65,7 +84,7 @@ export async function NumbersStrip() {
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3 px-2 text-sm text-ink-soft">
           {impact.updatedOn ? <span>{t("updated", { date: formatDate(impact.updatedOn, locale) })}</span> : <span />}
-          <Link href="/distribution-ledger" className="inline-flex items-center gap-1.5 font-medium text-maroon underline-offset-4 hover:underline">
+          <Link href="/ledger" className="inline-flex items-center gap-1.5 font-medium text-maroon underline-offset-4 hover:underline">
             {t("proof")} <Icon name="arrowRight" size={16} />
           </Link>
         </div>

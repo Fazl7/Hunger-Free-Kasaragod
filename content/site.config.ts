@@ -67,8 +67,8 @@ export const siteConfig = {
   },
 
   impact: {
-    /** The ONLY confirmed number from the brochure. */
-    kitsPerMonth: 100,
+    /** Monthly kit goal; not a claim that this many kits have already been delivered. */
+    monthlyKitTarget: 100,
     mealsServed: null as number | null,
     householdsReached: null as number | null,
     foodRescuedKg: null as number | null,
@@ -103,7 +103,6 @@ export const siteConfig = {
     { id: "cherkala", name: { en: "Cherkala", ml: "ചെർക്കള" }, lat: 12.5167, lng: 75.0667, kind: "hub" },
     { id: "kanhangad", name: { en: "Kanhangad", ml: "കാഞ്ഞങ്ങാട്" }, lat: 12.3156, lng: 75.0939, kind: "hub" },
     { id: "interiors", name: { en: "Remote interiors", ml: "ഉൾനാടൻ ഗ്രാമങ്ങൾ" }, lat: 12.42, lng: 75.22, kind: "area" },
-    { id: "wayanad", name: { en: "Wayanad (relief)", ml: "വയനാട് (ദുരിതാശ്വാസം)" }, lat: 11.6854, lng: 76.132, kind: "relief" },
   ],
 
   /** Optional hero media. Leave null until a consented 6–10 s loop is supplied. */

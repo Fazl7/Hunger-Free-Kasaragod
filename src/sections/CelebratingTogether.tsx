@@ -6,7 +6,7 @@ import { Icon, type IconKey } from "@/components/icons/Icon";
 import { RescueRoute } from "./RescueRoute";
 import { tr } from "@/lib/utils";
 
-/** S7. Celebrating Together: Collect → Pack → Distribute + mini booking form. */
+/** Surplus food rescue: Collect → Pack → Distribute + mini booking form. */
 export async function CelebratingTogether() {
   const t = await getTranslations("rescue");
   const locale = await getLocale();
@@ -69,9 +69,7 @@ export async function CelebratingTogether() {
             <label className="grid gap-1.5 text-sm font-medium">
               {t("areaLabel")}
               <select name="area" className="min-h-12 rounded-xl border-2 border-ink/15 bg-white px-4 text-base focus:border-maroon">
-                {siteConfig.places
-                  .filter((p) => p.kind !== "relief")
-                  .map((p) => (
+                {siteConfig.places.map((p) => (
                     <option key={p.id} value={p.id}>
                       {tr(p.name, locale)}
                     </option>

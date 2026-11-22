@@ -13,9 +13,25 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  images: { formats: ["image/avif", "image/webp"] },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    // Press photos live in Supabase Storage (public "media" bucket).
+    remotePatterns: [{ protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" }],
+  },
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      // Admin is never indexed (also has <meta name="robots" content="noindex">).
+      { source: "/admin", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
+      { source: "/admin/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
+    ];
+  },
+  async redirects() {
+    return [
+      // Old URLs → new pages (permanent, keeps any existing links and rankings).
+      { source: "/:locale(en|ml)/distribution-ledger", destination: "/:locale/ledger", permanent: true },
+      { source: "/:locale(en|ml)/resources", destination: "/:locale/press", permanent: true },
+    ];
   },
 };
 

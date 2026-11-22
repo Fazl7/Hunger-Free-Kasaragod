@@ -12,8 +12,8 @@ export const faqs: Faq[] = [
     id: "what",
     q: { en: "What is Hunger Free Kasaragod?", ml: "എന്താണ് ഹംഗർ ഫ്രീ കാസർഗോഡ്?" },
     a: {
-      en: "Hunger Free Kasaragod is the food-relief initiative of Live to Smile Foundation (LTS Foundation), a charitable organisation in Kasaragod, Kerala. It serves warm breakfasts to people on the streets, delivers grocery kits to 100 households every month, supports isolated villages through Food On Call, and rescues surplus food from weddings and birthdays.",
-      ml: "കേരളത്തിലെ കാസർഗോഡ് ആസ്ഥാനമായ ലിവ് ടു സ്മൈൽ ഫൗണ്ടേഷന്റെ (LTS ഫൗണ്ടേഷൻ) ഭക്ഷ്യ സഹായ പദ്ധതിയാണ് ഹംഗർ ഫ്രീ കാസർഗോഡ്. തെരുവിൽ കഴിയുന്നവർക്ക് പ്രഭാതഭക്ഷണം, മാസം 100 കുടുംബങ്ങൾക്ക് പലചരക്ക് കിറ്റുകൾ, ഫുഡ് ഓൺ കോൾ വഴി ഒറ്റപ്പെട്ട ഗ്രാമങ്ങൾക്ക് സഹായം, വിവാഹങ്ങളിലും പിറന്നാളുകളിലും ബാക്കിയാകുന്ന ഭക്ഷണത്തിന്റെ ശേഖരണം എന്നിവ ഇതിന്റെ ഭാഗമാണ്.",
+      en: "Hunger Free Kasaragod is the food-relief initiative of Live to Smile Foundation (LTS Foundation), a charitable organisation in Kasaragod, Kerala. Its three core pathways are cooked breakfasts and lunches, a monthly target of 100 grocery kits, and safe surplus-food rescue.",
+      ml: "കേരളത്തിലെ കാസർഗോഡ് ആസ്ഥാനമായ ലിവ് ടു സ്മൈൽ ഫൗണ്ടേഷന്റെ (LTS ഫൗണ്ടേഷൻ) ഭക്ഷ്യസഹായ സംരംഭമാണ് ഹംഗർ ഫ്രീ കാസർഗോഡ്. പാകം ചെയ്ത പ്രഭാത-ഉച്ചഭക്ഷണം, പ്രതിമാസം 100 പലചരക്ക് കിറ്റുകൾ എന്ന ലക്ഷ്യം, സുരക്ഷിതമായ മിച്ചഭക്ഷണ ശേഖരണം എന്നിവയാണ് മൂന്ന് പ്രധാന മാർഗങ്ങൾ.",
     },
   },
   {

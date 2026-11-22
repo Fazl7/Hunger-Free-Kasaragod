@@ -22,9 +22,7 @@ export function organizationSchema(): Json {
     url: siteConfig.siteUrl,
     logo: absoluteUrl("/icon.svg"),
     sameAs: [org.socials.x, org.socials.instagram, org.socials.website],
-    areaServed: siteConfig.places
-      .filter((p) => p.kind !== "relief")
-      .map((p) => ({ "@type": "Place", name: `${p.name.en}, Kasaragod district, Kerala, India` })),
+    areaServed: siteConfig.places.map((p) => ({ "@type": "Place", name: `${p.name.en}, Kasaragod district, Kerala, India` })),
     knowsAbout: ["Food distribution", "Surplus food rescue", "Grocery kit distribution", "Hunger relief"],
     ...(org.foundingYear && { foundingDate: String(org.foundingYear) }),
     ...(org.address && {
@@ -113,3 +111,55 @@ export function donateActionSchema(locale: string): Json {
 }
 
 export const graph = (...nodes: Json[]) => ({ "@context": "https://schema.org", "@graph": nodes });
+
+/** Inline publisher block (Google wants name + logo on the article itself). */
+const publisher = () => ({
+  "@type": "NGO",
+  "@id": ids.org,
+  name: siteConfig.org.name,
+  url: siteConfig.siteUrl,
+  logo: { "@type": "ImageObject", url: absoluteUrl("/icon.svg") },
+});
+
+/** NewsArticle for a press release. Dates are midnight IST of the release date. */
+export function newsArticleSchema(a: {
+  locale: string;
+  slug: string;
+  headline: string;
+  description: string;
+  releaseDate: string; // YYYY-MM-DD
+  modified: string; // ISO timestamp
+  images: string[];
+  place?: string | null;
+}): Json {
+  const url = absoluteUrl(localePath(a.locale, `/press/${a.slug}`));
+  return {
+    "@type": "NewsArticle",
+    "@id": `${url}#article`,
+    mainEntityOfPage: url,
+    url,
+    headline: a.headline.slice(0, 110),
+    description: a.description,
+    inLanguage: a.locale,
+    datePublished: `${a.releaseDate}T00:00:00+05:30`,
+    dateModified: a.modified,
+    ...(a.images.length && { image: a.images }),
+    author: { "@type": "Organization", name: siteConfig.org.name, url: siteConfig.siteUrl },
+    publisher: publisher(),
+    ...(a.place && { contentLocation: { "@type": "Place", name: a.place }, dateline: a.place }),
+  };
+}
+
+/** VideoObject for a YouTube video in the gallery. */
+export function videoObjectSchema(v: { youtubeId: string; name: string; uploadDate: string; description?: string }): Json {
+  return {
+    "@type": "VideoObject",
+    name: v.name,
+    description: v.description ?? v.name,
+    thumbnailUrl: [`https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`],
+    uploadDate: v.uploadDate,
+    embedUrl: `https://www.youtube.com/embed/${v.youtubeId}`,
+    url: `https://www.youtube.com/watch?v=${v.youtubeId}`,
+    publisher: publisher(),
+  };
+}
