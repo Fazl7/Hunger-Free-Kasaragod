@@ -156,10 +156,11 @@ export default function AdminDashboardPage() {
           <div className="mt-4 h-64 animate-pulse rounded-xl bg-ink/5" />
         ) : (
           <ul className="mt-4 divide-y divide-ink/8">
-            {programs.filter((p) => p.is_active).map((p) => (
+            {programs.map((p) => (
               <li key={p.id} className="grid gap-2 py-3 sm:grid-cols-[1fr_auto_auto] sm:items-center">
                 <span className={cn("font-medium", !p.is_active && "text-ink-soft line-through")}>
                   {p.name_en}
+                  {!p.is_active && <span className="ml-2 rounded-full bg-ink/5 px-2 py-0.5 text-xs font-normal no-underline">Inactive</span>}
                   {p.name_ml && <span lang="ml" className="block text-sm font-normal text-ink-soft">{p.name_ml}</span>}
                 </span>
                 <label className="flex items-center gap-2 text-sm">
