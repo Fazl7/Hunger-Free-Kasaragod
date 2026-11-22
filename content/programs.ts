@@ -21,7 +21,7 @@ export type Program = {
 export const programs: Program[] = [
   {
     slug: "daily-food",
-    order: 3,
+    order: 1,
     tone: "maroon",
     icon: "plate",
     name: { en: "Cooked Breakfasts and Lunches", ml: "പാകം ചെയ്ത പ്രഭാതഭക്ഷണവും ഉച്ചഭക്ഷണവും" },
@@ -45,7 +45,7 @@ export const programs: Program[] = [
   },
   {
     slug: "100-kit-month",
-    order: 1,
+    order: 3,
     tone: "mustard",
     icon: "kit",
     name: { en: "Monthly Grocery Kits", ml: "പ്രതിമാസ പലചരക്ക് കിറ്റുകൾ" },
