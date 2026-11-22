@@ -81,6 +81,16 @@ export const siteConfig = {
     costPerKitINR: null as number | null,
     allowCustom: true,
     minINR: 1,
+    directPayment: {
+      accountName: "Live To Smile Foundation Trust",
+      accountNumber: "50200111007091",
+      customerId: "324779818",
+      branch: "Kanhangad",
+      ifsc: "HDFC0001526",
+      gpayNumber: "9778600529",
+      qrImage: "/donate/upi-qr.png",
+      brochure: "/donate/brochure.pdf",
+    },
   },
 
   /** GAP: how each rupee is used. Hidden until provided. */
