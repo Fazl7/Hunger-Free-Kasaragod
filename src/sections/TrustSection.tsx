@@ -9,8 +9,7 @@ import { Icon } from "@/components/icons/Icon";
 import { tr } from "@/lib/utils";
 
 /**
- * S15. Trust and recognition. Registration IDs are shown ONLY once verified
- * against the original certificates (site.config.registrations.verifiedOn).
+ * S15. Trust and recognition. Registration IDs are shown after owner confirmation.
  */
 export async function TrustSection() {
   const t = await getTranslations("trust");
@@ -35,8 +34,7 @@ export async function TrustSection() {
             <div>
               {!registrationsVerified && (
                 <GapNote className="mb-4">
-                  Registration IDs below were transcribed from a photo of the brochure and are NOT verified. Verify against the original
-                  certificates, then set <code>registrations.verifiedOn</code>. Until then they are hidden in production.
+                  Registration IDs need owner confirmation before public display. Set <code>registrations.verifiedOn</code> after confirmation.
                 </GapNote>
               )}
               <ul className="grid gap-4 sm:grid-cols-2">

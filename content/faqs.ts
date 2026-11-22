@@ -30,44 +30,44 @@ export const faqs: Faq[] = [
   },
   {
     id: "accept",
-    needsConfirmation: true,
     q: { en: "What food can you accept?", ml: "ഏതൊക്കെ ഭക്ഷണം നിങ്ങൾ സ്വീകരിക്കും?" },
     a: {
-      en: "PENDING OWNER CONFIRMATION: cooked vs packaged food, timing limits and minimum quantity.",
-      ml: "ഉടമയുടെ സ്ഥിരീകരണം ആവശ്യമാണ്.",
+      en: "We accept freshly cooked, hygienically stored, uncontaminated surplus vegetarian or non-vegetarian meals from weddings, conventions, hotels and family functions across Kasaragod, Kanhangad, Thrikkaripur and Cherkala, provided they were prepared within the last two to three hours. We also accept sealed, non-perishable groceries such as rice, pulses, cooking oil, tea, sugar and spices for monthly ration kits. We cannot accept spoiled, stale or partially served food.",
+      ml: "കാസർഗോഡ്, കാഞ്ഞങ്ങാട്, തൃക്കരിപ്പൂർ, ചെർക്കള എന്നിവിടങ്ങളിലെ വിവാഹങ്ങൾ, സമ്മേളനങ്ങൾ, ഹോട്ടലുകൾ, കുടുംബ പരിപാടികൾ എന്നിവയിൽ നിന്ന് പുതുതായി പാകം ചെയ്തതും ശുചിത്വത്തോടെ സൂക്ഷിച്ചതും മലിനമാകാത്തതുമായ മിച്ച സസ്യാഹാരമോ മാംസാഹാരമോ ഞങ്ങൾ സ്വീകരിക്കുന്നു. കഴിഞ്ഞ രണ്ടോ മൂന്നോ മണിക്കൂറിനുള്ളിൽ പാകം ചെയ്തതായിരിക്കണം. പ്രതിമാസ റേഷൻ കിറ്റുകൾക്കായി അരി, പയർവർഗങ്ങൾ, പാചക എണ്ണ, ചായ, പഞ്ചസാര, മസാലകൾ തുടങ്ങിയ മുദ്രവെച്ച, കേടാകാത്ത പലചരക്ക് സാധനങ്ങളും സ്വീകരിക്കുന്നു. കേടായതോ പഴകിയതോ ഭാഗികമായി വിളമ്പിയതോ ആയ ഭക്ഷണം സ്വീകരിക്കാനാവില്ല.",
     },
+    link: "/food-rescue",
   },
   {
     id: "areas",
     q: { en: "Which areas do you serve?", ml: "ഏതൊക്കെ പ്രദേശങ്ങളിലാണ് നിങ്ങൾ സേവനം നൽകുന്നത്?" },
     a: {
-      en: "We serve Kasaragod, Cherkala and Kanhangad, along with remote villages in the interiors of Kasaragod district that urban aid often overlooks. We have also sent disaster relief supplies to families affected by the Wayanad landslides.",
-      ml: "കാസർഗോഡ്, ചെർക്കള, കാഞ്ഞങ്ങാട് എന്നിവിടങ്ങളിലും നഗര സഹായം എത്താത്ത ജില്ലയിലെ ഉൾനാടൻ ഗ്രാമങ്ങളിലും ഞങ്ങൾ സേവനം നൽകുന്നു. വയനാട് ഉരുൾപൊട്ടൽ ബാധിതർക്കും ദുരിതാശ്വാസ സാമഗ്രികൾ എത്തിച്ചിട്ടുണ്ട്.",
+      en: "We serve Kasaragod, Cherkala, Kanhangad and Thrikkaripur, as well as remote villages across Kasaragod district.",
+      ml: "കാസർഗോഡ്, ചെർക്കള, കാഞ്ഞങ്ങാട്, തൃക്കരിപ്പൂർ എന്നിവിടങ്ങളിലും കാസർഗോഡ് ജില്ലയിലെ വിദൂര ഗ്രാമങ്ങളിലും ഞങ്ങൾ സേവനം നൽകുന്നു.",
     },
   },
   {
     id: "tax",
-    needsConfirmation: true,
     q: { en: "Are donations tax-deductible?", ml: "സംഭാവനകൾക്ക് നികുതി ഇളവ് ലഭിക്കുമോ?" },
     a: {
-      en: "PENDING VERIFICATION: 80G status, receipt format and PAN requirement must be confirmed against the certificate and by a CA.",
-      ml: "സ്ഥിരീകരണം ആവശ്യമാണ്.",
+      en: "Eligible donations to Live to Smile Foundation Trust qualify for deduction under Section 80G of the Income Tax Act, subject to applicable rules. An official digital receipt with the registration details is issued for each contribution.",
+      ml: "ലൈവ് ടു സ്മൈൽ ഫൗണ്ടേഷൻ ട്രസ്റ്റിന് നൽകുന്ന അർഹമായ സംഭാവനകൾക്ക് ബാധകമായ ചട്ടങ്ങൾക്കനുസരിച്ച് ആദായനികുതി നിയമത്തിലെ വകുപ്പ് 80G പ്രകാരം ഇളവ് ലഭിക്കും. ഓരോ സംഭാവനയ്ക്കും രജിസ്ട്രേഷൻ വിവരങ്ങളോടുകൂടിയ ഔദ്യോഗിക ഡിജിറ്റൽ രസീത് നൽകുന്നു.",
     },
+    link: "/transparency",
   },
   {
     id: "safety",
     q: { en: "How is the food kept safe?", ml: "ഭക്ഷണം എങ്ങനെയാണ് സുരക്ഷിതമായി സൂക്ഷിക്കുന്നത്?" },
     a: {
-      en: "Surplus food is moved into food-grade containers on site, packed into eco-friendly ready-to-eat meal packets, and carried in dedicated vehicles to a refrigerated storage hub so it can be distributed safely the same day or the next day.",
-      ml: "ബാക്കിയായ ഭക്ഷണം സ്ഥലത്തുവെച്ചുതന്നെ ഫുഡ്-ഗ്രേഡ് പാത്രങ്ങളിലാക്കി, പരിസ്ഥിതി സൗഹൃദ പായ്ക്കറ്റുകളിലാക്കി, പ്രത്യേക വാഹനങ്ങളിൽ ശീതീകരിച്ച സംഭരണ കേന്ദ്രത്തിലെത്തിക്കുന്നു. അന്നോ പിറ്റേന്നോ സുരക്ഷിതമായി വിതരണം ചെയ്യുന്നു.",
+      en: "Volunteers use clean, food-grade containers and check that donated food is fresh, uncontaminated and hygienically stored. Only food prepared within the previous two to three hours is accepted, and safe meals are redistributed promptly.",
+      ml: "വളണ്ടിയർമാർ വൃത്തിയുള്ള ഫുഡ്-ഗ്രേഡ് പാത്രങ്ങൾ ഉപയോഗിക്കുകയും സംഭാവന ചെയ്യുന്ന ഭക്ഷണം പുതുതും മലിനമാകാത്തതും ശുചിത്വത്തോടെ സൂക്ഷിച്ചതുമാണെന്ന് പരിശോധിക്കുകയും ചെയ്യുന്നു. കഴിഞ്ഞ രണ്ടോ മൂന്നോ മണിക്കൂറിനുള്ളിൽ പാകം ചെയ്ത ഭക്ഷണം മാത്രമാണ് സ്വീകരിക്കുന്നത്; സുരക്ഷിതമായ ഭക്ഷണം ഉടൻ വിതരണം ചെയ്യുന്നു.",
     },
   },
   {
     id: "request",
     q: { en: "How do I request food for someone in need?", ml: "ആവശ്യമുള്ള ഒരാൾക്കായി ഭക്ഷണം എങ്ങനെ അഭ്യർത്ഥിക്കാം?" },
     a: {
-      en: "Use the Request Help form to tell us the area, the number of people and how urgent it is. Through Food On Call we reach isolated villages in the interiors of Kasaragod. Your details are kept private.",
-      ml: "പ്രദേശം, ആളുകളുടെ എണ്ണം, അടിയന്തരാവസ്ഥ എന്നിവ സഹായ അഭ്യർത്ഥന ഫോമിൽ അറിയിക്കുക. ഫുഡ് ഓൺ കോൾ വഴി കാസർഗോഡിന്റെ ഉൾഗ്രാമങ്ങളിൽ വരെ ഞങ്ങൾ എത്തുന്നു. നിങ്ങളുടെ വിവരങ്ങൾ സ്വകാര്യമായി സൂക്ഷിക്കും.",
+      en: "The Request Help page explains how individuals and concerned neighbours can alert our team. We connect people who cannot reach a distribution point with cooked-meal routes or monthly grocery kits, and handle each request sensitively and privately.",
+      ml: "സഹായം ആവശ്യമുള്ളവർക്കോ അവരുടെ അയൽക്കാർക്കോ ഞങ്ങളുടെ ടീമിനെ അറിയിക്കാനുള്ള വിവരങ്ങൾ സഹായ അഭ്യർത്ഥന പേജിലുണ്ട്. വിതരണ കേന്ദ്രത്തിലെത്താൻ കഴിയാത്തവരെ പാകം ചെയ്ത ഭക്ഷണ വിതരണ വഴികളുമായോ പ്രതിമാസ പലചരക്ക് കിറ്റുകളുമായോ ബന്ധിപ്പിക്കുന്നു. ഓരോ അഭ്യർത്ഥനയും കരുതലോടെയും സ്വകാര്യതയോടെയും കൈകാര്യം ചെയ്യുന്നു.",
     },
     link: "/request-help",
   },
@@ -75,24 +75,26 @@ export const faqs: Faq[] = [
     id: "volunteer",
     q: { en: "Can I volunteer?", ml: "എനിക്ക് വളണ്ടിയർ ആകാമോ?" },
     a: {
-      en: "Yes. Volunteers help with packing, distribution, driving, photography, translation and tech. Sign up on the Volunteer page and pick the role that suits you.",
-      ml: "തീർച്ചയായും. പായ്ക്കിംഗ്, വിതരണം, ഡ്രൈവിംഗ്, ഫോട്ടോഗ്രഫി, വിവർത്തനം, ടെക് എന്നിവയിൽ വളണ്ടിയർമാർ സഹായിക്കുന്നു. വളണ്ടിയർ പേജിൽ രജിസ്റ്റർ ചെയ്യുക.",
+      en: "Yes. Volunteers can help prepare and pack breakfast, join lunch rounds, assemble ration kits, support food-rescue pickups, or document the work. Visit the Volunteer page to learn about the roles.",
+      ml: "തീർച്ചയായും. പ്രഭാതഭക്ഷണം തയ്യാറാക്കാനും പായ്ക്ക് ചെയ്യാനും, ഉച്ചഭക്ഷണ വിതരണത്തിൽ പങ്കെടുക്കാനും, റേഷൻ കിറ്റുകൾ ഒരുക്കാനും, ഭക്ഷ്യ വീണ്ടെടുപ്പ് പിക്കപ്പുകൾക്ക് സഹായിക്കാനും, പ്രവർത്തനങ്ങൾ രേഖപ്പെടുത്താനും വളണ്ടിയർമാർക്ക് കഴിയും. ചുമതലകളെക്കുറിച്ച് വളണ്ടിയർ പേജിൽ അറിയാം.",
     },
     link: "/volunteer",
   },
   {
     id: "csr",
-    needsConfirmation: true,
     q: { en: "Can companies fund this through CSR?", ml: "കമ്പനികൾക്ക് CSR വഴി സഹായിക്കാമോ?" },
     a: {
-      en: "PENDING VERIFICATION: confirm CSR-1 registration against the certificate before publishing.",
-      ml: "സ്ഥിരീകരണം ആവശ്യമാണ്.",
+      en: "Yes. Live to Smile Foundation has an active MCA CSR-1 registration (CSR00104723). Companies can support meal services, monthly grocery kits or food-rescue logistics, with CSR documentation and utilization reporting.",
+      ml: "അതെ. ലൈവ് ടു സ്മൈൽ ഫൗണ്ടേഷന് സജീവമായ MCA CSR-1 രജിസ്ട്രേഷൻ (CSR00104723) ഉണ്ട്. ഭക്ഷണ വിതരണം, പ്രതിമാസ പലചരക്ക് കിറ്റുകൾ, ഭക്ഷ്യ വീണ്ടെടുപ്പ് ഗതാഗതം എന്നിവയ്ക്ക് കമ്പനികൾക്ക് പിന്തുണ നൽകാം; CSR രേഖകളും വിനിയോഗ റിപ്പോർട്ടുകളും ലഭ്യമാക്കും.",
     },
+    link: "/partner-with-us",
   },
   {
     id: "foreign",
-    needsConfirmation: true,
     q: { en: "Do you accept foreign donations?", ml: "വിദേശ സംഭാവനകൾ സ്വീകരിക്കുമോ?" },
-    a: { en: "PENDING: FCRA status not yet confirmed.", ml: "FCRA സ്ഥിതി സ്ഥിരീകരിച്ചിട്ടില്ല." },
+    a: {
+      en: "Live to Smile Foundation has active FCRA registration/approval. Hunger Free Kasaragod currently accepts contributions in INR from Indian citizens, eligible NRE/NRO account holders with Indian passports, and Indian-registered entities. Contributions remain subject to FCRA requirements.",
+      ml: "ലൈവ് ടു സ്മൈൽ ഫൗണ്ടേഷന് സജീവമായ FCRA രജിസ്ട്രേഷൻ/അംഗീകാരമുണ്ട്. ഹംഗർ ഫ്രീ കാസർഗോഡ് നിലവിൽ ഇന്ത്യൻ പൗരന്മാരിൽ നിന്നും, ഇന്ത്യൻ പാസ്‌പോർട്ടുള്ള അർഹരായ NRE/NRO അക്കൗണ്ട് ഉടമകളിൽ നിന്നും, ഇന്ത്യയിൽ രജിസ്റ്റർ ചെയ്ത സ്ഥാപനങ്ങളിൽ നിന്നും INR-ൽ സംഭാവനകൾ സ്വീകരിക്കുന്നു. എല്ലാ സംഭാവനകളും FCRA ചട്ടങ്ങൾക്ക് വിധേയമാണ്.",
+    },
   },
 ];

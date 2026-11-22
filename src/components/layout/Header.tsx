@@ -121,8 +121,8 @@ export function Header({ trustBar }: { trustBar?: string | null }) {
               href="/donate"
               className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-mustard px-3.5 text-[0.95rem] sm:px-5 font-semibold text-ink shadow-[0_6px_18px_-8px_rgba(242,183,5,.95)] transition-transform hover:-translate-y-0.5 active:scale-95"
             >
-              <Icon name="heart" size={18} className="hidden min-[400px]:block" />
-              {t("common.donateShort")}
+              <Icon name="heart" size={18} />
+              <span className="sr-only min-[400px]:not-sr-only">{t("common.donateShort")}</span>
             </Link>
             <button
               ref={menuBtn}
@@ -152,8 +152,9 @@ export function Header({ trustBar }: { trustBar?: string | null }) {
         id="mobile-menu"
         ref={drawer}
         role="dialog"
-        aria-modal="true"
+        aria-modal={open}
         aria-label={t("common.menu")}
+        aria-hidden={!open}
         inert={!open}
         className={cn(
           "on-dark fixed inset-y-0 right-0 z-[70] flex w-[min(22rem,88vw)] flex-col overflow-y-auto bg-maroon p-6 text-cream transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] lg:hidden",

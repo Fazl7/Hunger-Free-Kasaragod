@@ -67,6 +67,13 @@ export async function Footer() {
             {org.email && (
               <p><a className="hover:text-mustard" href={`mailto:${org.email}`}>{org.email}</a></p>
             )}
+            {org.whatsapp && (
+              <p>
+                <a className="hover:text-mustard" href={`https://wa.me/${org.whatsapp}`} target="_blank" rel="noopener noreferrer">
+                  {t("footer.whatsapp")}
+                </a>
+              </p>
+            )}
           </address>
           {!org.address && !org.phone && !org.email && (
             <GapNote className="mt-4">Address, phone and email for the footer.</GapNote>

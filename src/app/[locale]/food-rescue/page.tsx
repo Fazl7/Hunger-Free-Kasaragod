@@ -24,6 +24,11 @@ export default async function FoodRescuePage({ params }: Props) {
   return (
     <>
       <PageHero title={nav("foodRescue")} intro={rescue("sub")} crumbs={crumbs} />
+      <article className="container-page max-w-4xl space-y-5 py-12 pb-16 text-lg leading-relaxed text-ink-soft">
+        <p>{rescue("context")}</p>
+        <p>{rescue("quality")}</p>
+        <p>{rescue("impact")}</p>
+      </article>
       <CelebratingTogether />
       <JsonLd data={graph(breadcrumbSchema(locale, [{ name: "Home", path: "/" }, ...crumbs]))} />
     </>

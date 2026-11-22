@@ -19,21 +19,18 @@ export const siteConfig = {
     name: "Live to Smile Foundation",
     alternateName: "LTS Foundation",
     brand: "Hunger Free Kasaragod",
-    /** GAP: street address not yet supplied. */
-    address: null as null | {
-      street: string;
-      locality: string;
-      district: string;
-      region: string;
-      postalCode: string;
-      country: "IN";
+    address: {
+      street: "Live to Smile Foundation Trust",
+      locality: "Udma PO, Udma",
+      district: "Kasaragod",
+      region: "Kerala",
+      postalCode: "671319",
+      country: "IN" as const,
     },
-    /** GAP: E.164 format, e.g. "+9194xxxxxxxx". */
-    phone: null as string | null,
-    /** GAP: E.164 digits only, used for wa.me links. */
-    whatsapp: null as string | null,
-    email: null as string | null,
-    foundingYear: null as number | null,
+    phone: "+919778600529",
+    whatsapp: "919778600529",
+    email: "livetosmilefoundation@gmail.com",
+    foundingYear: 2022,
     openingHours: null as string | null,
     socials: {
       x: "https://x.com/LTS_Foundation",
@@ -42,17 +39,14 @@ export const siteConfig = {
     },
   },
 
-  /**
-   * Transcribed from a PHOTO of the brochure. Must be verified against original
-   * certificates. IDs render publicly ONLY when `verifiedOn` is set.
-   */
+  /** The foundation owner confirmed these IDs for public display. */
   registrations: {
     niti: "KL/2023/0346346",
     twelveA: "AACTL2843C25KC01",
     eightyG: "AACTL2843C25KC02",
     csr1: "CSR00104723",
     fcra: null as string | null,
-    verifiedOn: null as string | null, // ISO date, e.g. "2026-12-01"
+    verifiedOn: "2026-11-22",
   },
 
   award: {
@@ -86,15 +80,17 @@ export const siteConfig = {
     costPerMealINR: null as number | null,
     costPerKitINR: null as number | null,
     allowCustom: true,
-    minINR: 100,
+    minINR: 1,
   },
 
   /** GAP: how each rupee is used. Hidden until provided. */
   fundsBreakdown: null as null | { label: I18n; percent: number }[],
 
   foodRescue: {
-    /** GAP: e.g. "within 30 minutes". Shown on the form when set. */
-    responseTime: null as I18n | null,
+    responseTime: {
+      en: "Please contact the team at least two hours before your event ends so pickup can be coordinated.",
+      ml: "പരിപാടി അവസാനിക്കുന്നതിന് കുറഞ്ഞത് രണ്ട് മണിക്കൂർ മുമ്പ് ടീമിനെ അറിയിക്കുക; പിക്കപ്പ് ക്രമീകരിക്കാൻ ഇത് സഹായിക്കും.",
+    } satisfies I18n,
   },
 
   /** Places named in the brochure. Coordinates are public town centres (approximate). */
@@ -112,7 +108,7 @@ export const siteConfig = {
     ledger: true,
     uploads: false, // needs Supabase + moderation (Phase 4)
     recurring: false, // needs Razorpay subscriptions (Phase 4)
-    foreignDonations: false, // needs FCRA confirmation
+    foreignDonations: false, // This initiative currently accepts domestic contributions only.
   },
 };
 

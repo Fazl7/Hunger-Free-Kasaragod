@@ -87,7 +87,7 @@
   },
   "intro": {
     "label": "Who we are",
-    "text": "Live to Smile Foundation is a Kasaragod-based charitable organisation serving food, shelter, education and care to people who need it most. Through Hunger Free Kasaragod we deliver fresh breakfasts, grocery kits and rescued celebration food across Kasaragod, Cherkala and Kanhangad, and into remote villages that urban aid often overlooks."
+    "text": "Established in 2022, Live to Smile Foundation works in community mental health, education and human dignity. Through Hunger Free Kasaragod, we serve freshly cooked breakfasts and lunches, work toward a monthly target of 100 grocery kits, and rescue safe surplus food for neighbours across Kasaragod district."
   },
   "story": {
     "label": "Our story",
@@ -124,18 +124,29 @@
     "heading": "Your celebration can feed a neighbourhood",
     "sub": "Weddings and birthdays often end with good food left over. We make sure it reaches people who need it, safely.",
     "collect": "Collect",
-    "collectBody": "Our team arrives promptly, transfers unserved dishes into food-grade containers, and keeps them safe and fresh.",
+    "collectBody": "Our team coordinates a prompt pickup using clean, food-grade containers. We accept only fresh, uncontaminated food prepared within the last two to three hours.",
     "pack": "Pack",
-    "packBody": "Food is organised into eco-friendly, ready-to-eat meal packets.",
+    "packBody": "Volunteers check the food for freshness and hygiene, then pack safe portions for redistribution.",
     "distribute": "Distribute",
-    "distributeBody": "Dedicated vehicles and a refrigerated hub keep food at the right temperature for same-day or next-day delivery.",
-    "safe": "Kept cold in our refrigerated hub",
+    "distributeBody": "Safe rescued meals are delivered promptly to street dwellers and underserved neighbours.",
+    "safe": "Food is checked before redistribution",
     "formTitle": "Book a pickup",
+    "name": "Your name",
+    "phone": "Your phone number",
     "date": "Event date",
     "areaLabel": "Area",
+    "selectArea": "Select an area",
+    "venue": "Event venue or pickup address",
     "servings": "Approx. servings",
+    "foodDetails": "Food and other details",
     "cta": "Continue booking",
-    "areaOther": "Other place in Kasaragod"
+    "whatsappIntro": "Food Rescue pickup request",
+    "whatsappNote": "This opens WhatsApp with a draft message. Review the details and tap Send there; your request is not sent until you do.",
+    "whatsappSubmit": "Continue to WhatsApp",
+    "areaOther": "Other place in Kasaragod",
+    "context": "Across Kasaragod district, wholesome food can remain after weddings, family celebrations, conventions, religious gatherings and hotel banquets while neighbours go hungry. Hunger Free Kasaragod connects event hosts, caterers and hotels with people who need a meal by coordinating the collection and dignified redistribution of safe surplus food.",
+    "quality": "When surplus is identified, volunteers coordinate a pickup with the host and arrive with clean, food-grade containers. The team checks freshness, hygiene and handling, and accepts only uncontaminated food prepared within the previous two to three hours. Spoiled, stale or partially served food is never accepted. Safe meals are delivered to people in need within hours.",
+    "impact": "Food Rescue provides an immediate meal while reducing avoidable food waste. Event hosts across Kasaragod, Kanhangad, Thrikkaripur and Cherkala can help turn untouched surplus into practical support for neighbours."
   },
   "gallery": {
     "label": "Gallery",
@@ -196,6 +207,20 @@
   "donate": {
     "label": "Donate",
     "heading": "Feed someone in Kasaragod today",
+    "pageTitle": "Make any donation",
+    "pageIntro": "Tell us your name and the amount you would like to contribute. WhatsApp will open with a message for our team.",
+    "encouragementLabel": "Every act of kindness matters",
+    "lineOne": "No amount is too small.",
+    "lineTwo": "A little kindness can bring a meal closer.",
+    "lineThree": "Together, we can keep food moving across Kasaragod.",
+    "formTitle": "Share your contribution",
+    "formIntro": "Choose any amount that feels right for you.",
+    "name": "Your name",
+    "amount": "Contribution amount",
+    "amountHint": "Enter any amount in Indian rupees.",
+    "whatsappIntro": "Donation enquiry for Hunger Free Kasaragod",
+    "whatsappNote": "WhatsApp opens with a draft message. Review it and tap Send; this site does not process payments.",
+    "whatsappSubmit": "Continue to WhatsApp",
     "custom": "Any amount",
     "customBody": "Choose what feels right for you. Every rupee goes toward meals and grocery kits.",
     "choose": "Choose",
@@ -215,7 +240,7 @@
     "pageIntro": "Every meal served through Hunger Free Kasaragod carries a human story—of resilience, unseen struggle, and the simple power of showing up consistently.",
     "paragraphOne": "When Live to Smile Foundation began its journey in September 2022 under the leadership of psychologist and social entrepreneur Ahammed Shareen, alongside Irfad Mayippadi and Abdul Rahman Erol, our work in community mental health and grassroots welfare brought us face-to-face with an uncomfortable truth: behind the bustling markets and bus stands of Kasaragod lived dozens of elderly citizens, stranded workers, and destitute individuals quietly enduring days without a proper meal.",
     "paragraphTwo": "We realized that sporadic festive charity was not enough; hunger strikes every day, and relief had to be just as reliable. What started on 25 October 2025 as a humble once-a-week breakfast initiative soon revealed the true scale of need on our streets. As our volunteers walked the lanes of Kasaragod, Kanhangad, Thrikkaripur, and Cherkala, we met an abandoned senior citizen near the railway station who survived on tea for days, a recovering daily-wage worker unable to stand in queues, and families silently skipping dinner so their children could eat.",
-    "paragraphThree": "Those encounters transformed a weekly experiment into a six-day-a-week commitment—expanding from breakfast at Theruvath Ubaid Park to daily lunch service, monthly dry ration kits, and emergency food rescue. We tackle hunger not because it is easy, but because a civilization is measured by how it treats its most vulnerable neighbours. Individual stories are shared only with permission, so the people we serve are represented with dignity.",
+    "paragraphThree": "Those encounters transformed a weekly experiment into a six-day-a-week commitment. Today, the team serves 50 freshly cooked breakfasts and 80 lunches on each service day, alongside monthly dry-grocery kits and emergency food rescue. Supported by Kasaragod Municipality, Aster MIMS Foundation and The LaLiT Resort & Spa Bekal, the work is recorded in an open Distribution Ledger. Individual stories are shared only with permission, so the people we serve are represented with dignity.",
     "preview": "We began by listening to people living with hunger on the streets of Kasaragod. Their experiences showed us that reliable, everyday support matters more than occasional charity.",
     "consentNote": "Individual beneficiary stories and photographs are shared only when permission has been given and recorded.",
     "publishedHeading": "Stories shared with permission"
@@ -224,10 +249,11 @@
     "title": "Impact rooted in daily action",
     "intro": "Hunger is more than a physical ache; it erodes health, human dignity and social stability. Addressing last-mile nutritional gaps is a pressing local commitment and part of the wider goal of Zero Hunger.",
     "paragraphOne": "At Live to Smile Foundation, impact is measured not only by the volume of meals served, but by the consistency and dignity with which support is delivered. Hunger Free Kasaragod works beyond fixed distribution centres, reaching people who may not be able to travel to them.",
-    "paragraphTwo": "Our current work includes serving 130 hot meals six days a week, working toward a monthly target of 100 dry-ration kits, and rescuing safe surplus food from events. Together, these three pathways offer practical food support to neighbours facing hardship.",
+    "paragraphTwo": "On each of our six service days, we serve 50 freshly cooked breakfasts and 80 wholesome lunches—130 hot meals in total. We also work toward a monthly target of 100 dry-ration kits and rescue safe surplus food from events. Together, these three pathways offer practical food support to neighbours facing hardship.",
     "note": "The 100-kit figure is a monthly target. Distribution totals are recorded separately in the public ledger.",
     "waysHeading": "Three practical pathways",
-    "mealsLabel": "hot meals served on a working day",
+    "breakfastsLabel": "freshly cooked breakfasts each service day",
+    "lunchesLabel": "wholesome lunches each service day",
     "daysLabel": "days of service each week",
     "kitsLabel": "grocery kits: monthly target",
     "ledgerLink": "See the distribution ledger"
@@ -252,17 +278,30 @@
   "faq": {
     "label": "FAQ",
     "heading": "Questions people ask us",
+    "intro": "Answers about the food we accept, our programmes, donations, partnerships and how to get help.",
     "all": "All questions"
   },
   "finalCta": {
     "heading": "Help keep food moving across Kasaragod.",
     "body": "A meal, a grocery kit or safe surplus food can make a difference when neighbours show up for one another."
   },
+  "contact": {
+    "intro": "Contact Live to Smile Foundation with questions about our work, partnerships or support. Our team is based in Udma, Kasaragod.",
+    "contactOptions": "Contact options",
+    "email": "Email",
+    "phone": "Call us",
+    "whatsapp": "Message us on WhatsApp",
+    "address": "Foundation address",
+    "rescueHeading": "Offering surplus food from an event?",
+    "rescueBody": "Use the Food Rescue form to share the event date, pickup area and food details with our team.",
+    "rescueLink": "Open the Food Rescue form"
+  },
   "footer": {
     "tagline": "Every meal, served with dignity.",
     "explore": "Explore",
     "getInvolved": "Get involved",
     "about": "About",
+    "whatsapp": "Message us on WhatsApp",
     "follow": "Follow us",
     "registrations": "Registrations",
     "rights": "© {year} Live to Smile Foundation. All rights reserved.",

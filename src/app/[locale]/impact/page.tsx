@@ -33,7 +33,8 @@ export default async function ImpactPage({ params }: Props) {
         <aside className="h-fit rounded-[var(--radius-card)] bg-cream-deep/60 p-6 sm:p-8">
           <h2 className="font-display text-2xl font-semibold">{t("waysHeading")}</h2>
           <ul className="mt-5 space-y-4">
-            <li><strong className="block text-2xl">130</strong><span className="text-ink-soft">{t("mealsLabel")}</span></li>
+            <li><strong className="block text-2xl">50</strong><span className="text-ink-soft">{t("breakfastsLabel")}</span></li>
+            <li><strong className="block text-2xl">80</strong><span className="text-ink-soft">{t("lunchesLabel")}</span></li>
             <li><strong className="block text-2xl">6</strong><span className="text-ink-soft">{t("daysLabel")}</span></li>
             <li><strong className="block text-2xl">100</strong><span className="text-ink-soft">{t("kitsLabel")}</span></li>
           </ul>

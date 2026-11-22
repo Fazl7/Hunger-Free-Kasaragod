@@ -4,6 +4,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { Icon, type IconKey } from "@/components/icons/Icon";
 import { RescueRoute } from "./RescueRoute";
+import { RescueWhatsAppForm } from "./RescueWhatsAppForm";
 import { tr } from "@/lib/utils";
 
 /** Surplus food rescue: Collect → Pack → Distribute + mini booking form. */
@@ -54,47 +55,8 @@ export async function CelebratingTogether() {
           ))}
         </ol>
 
-        {/* Mini form: plain GET form, works without JS, prefills the full booking flow. */}
         <Reveal className="mt-12 rounded-[2rem] bg-cream p-6 text-ink sm:p-8">
-          <form action={`/${locale}/food-rescue`} method="get" className="grid items-end gap-4 md:grid-cols-[1fr_1fr_1fr_auto]">
-            <h3 className="font-display text-2xl font-semibold md:col-span-4">{t("formTitle")}</h3>
-            <label className="grid gap-1.5 text-sm font-medium">
-              {t("date")}
-              <input
-                type="date"
-                name="date"
-                className="min-h-12 rounded-xl border-2 border-ink/15 bg-white px-4 text-base focus:border-maroon"
-              />
-            </label>
-            <label className="grid gap-1.5 text-sm font-medium">
-              {t("areaLabel")}
-              <select name="area" className="min-h-12 rounded-xl border-2 border-ink/15 bg-white px-4 text-base focus:border-maroon">
-                {siteConfig.places.map((p) => (
-                    <option key={p.id} value={p.id}>
-                      {tr(p.name, locale)}
-                    </option>
-                  ))}
-                <option value="other">{t("areaOther")}</option>
-              </select>
-            </label>
-            <label className="grid gap-1.5 text-sm font-medium">
-              {t("servings")}
-              <input
-                type="number"
-                name="servings"
-                min={1}
-                inputMode="numeric"
-                className="min-h-12 rounded-xl border-2 border-ink/15 bg-white px-4 text-base focus:border-maroon"
-              />
-            </label>
-            <button
-              type="submit"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-maroon px-6 font-semibold text-cream transition-transform hover:-translate-y-0.5 active:scale-95"
-            >
-              {t("cta")}
-              <Icon name="arrowRight" size={18} />
-            </button>
-          </form>
+          <RescueWhatsAppForm whatsapp={siteConfig.org.whatsapp} />
           {siteConfig.foodRescue.responseTime && (
             <p className="mt-4 text-sm text-ink-soft">{tr(siteConfig.foodRescue.responseTime, locale)}</p>
           )}
