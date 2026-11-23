@@ -53,7 +53,7 @@ const EMPTY: Form = {
   is_published: false,
 };
 
-const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ltsfoundation.in").replace(/\/$/, "");
+const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.hungerfreekasaragod.org").replace(/\/$/, "");
 const SITE_HOST = SITE.replace(/^https?:\/\//, "");
 
 export default function PressEditorPage({ params }: { params: Promise<{ id: string }> }) {

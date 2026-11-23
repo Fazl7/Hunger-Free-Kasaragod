@@ -13,7 +13,7 @@ export type I18n = { en: string; ml: string };
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ltsfoundation.in",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.hungerfreekasaragod.org",
 
   org: {
     name: "Live to Smile Foundation",

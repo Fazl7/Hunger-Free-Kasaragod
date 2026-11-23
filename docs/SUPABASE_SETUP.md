@@ -51,7 +51,7 @@ Only users in `public.admins` can write. Even a valid login without that row is 
 |---|---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | `https://hnuddarqfcpueuakctql.supabase.co` | `.env.local` + Vercel |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | the **publishable** key (`sb_publishable_…`) | `.env.local` + Vercel |
-| `NEXT_PUBLIC_SITE_URL` | `https://www.ltsfoundation.in` | Vercel (already used) |
+| `NEXT_PUBLIC_SITE_URL` | `https://www.hungerfreekasaragod.org` | Vercel (already used) |
 
 - `.env.local` already exists locally and is git-ignored. `.env.example` documents the names.
 - The publishable key is meant to be public. RLS protects the data.
