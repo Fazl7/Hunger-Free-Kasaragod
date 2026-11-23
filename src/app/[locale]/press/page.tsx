@@ -37,8 +37,8 @@ export default async function PressIndexPage({ params }: Props) {
       <div className="container-page pb-24">
         {list && list.length > 0 ? (
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {list.map((p, i) => (
-              <li key={p.id} className={i === 0 && list.length > 2 ? "sm:col-span-2 lg:col-span-2" : undefined}>
+            {list.map((p) => (
+              <li key={p.id}>
                 <PressCard item={p} locale={locale} readMore={t("readMore")} />
               </li>
             ))}
