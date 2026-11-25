@@ -23,6 +23,7 @@ const staticPaths: { path: string; priority: number; changeFrequency: "daily" | 
   { path: "/gallery", priority: 0.8, changeFrequency: "weekly" },
   { path: "/programs", priority: 0.8, changeFrequency: "monthly" },
   { path: "/about", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/team", priority: 0.6, changeFrequency: "monthly" },
   { path: "/transparency", priority: 0.7, changeFrequency: "monthly" },
   { path: "/faq", priority: 0.6, changeFrequency: "monthly" },
   { path: "/volunteer", priority: 0.6, changeFrequency: "monthly" },

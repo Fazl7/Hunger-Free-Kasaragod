@@ -5,6 +5,8 @@
     "programsTitle": "Three Food Pathways in Kasaragod | Hunger Free",
     "programsDescription": "Cooked breakfasts and lunches, a monthly target of 100 grocery kits, and safe surplus-food rescue across Kasaragod.",
     "siteName": "Hunger Free Kasaragod",
+    "teamTitle": "Meet Our Team | Live to Smile Foundation",
+    "teamDescription": "Meet the dedicated team and committee members behind Live to Smile Foundation and Hunger Free Kasaragod.",
     "ledgerTitle": "Distribution Ledger: Every Kit and Meal, Dated",
     "ledgerDescription": "Explore dated distribution records for cooked food, grocery kits and rescued surplus food across Kasaragod district.",
     "galleryTitle": "Gallery: Moments from the Field",
@@ -58,6 +60,7 @@
     "transparency": "Transparency",
     "faq": "FAQ",
     "stories": "Stories",
+    "team": "Meet our team",
     "press": "Press Releases",
     "partner": "Partner with us",
     "privacy": "Privacy",
@@ -262,6 +265,22 @@
     "preview": "We began by listening to people living with hunger on the streets of Kasaragod. Their experiences showed us that reliable, everyday support matters more than occasional charity.",
     "consentNote": "Individual beneficiary stories and photographs are shared only when permission has been given and recorded.",
     "publishedHeading": "Stories shared with permission"
+  },
+  "team": {
+    "pageTitle": "Meet our team",
+    "intro": "Meet the people behind Live to Smile Foundation. Our team and committee members work together with dedication, responsibility, and a shared commitment to the foundation's vision and activities. Each member plays an important role in supporting our initiatives and strengthening our mission.",
+    "eyebrow": "Live to Smile Foundation · Kasaragod",
+    "sectionEyebrow": "The people behind our work",
+    "sectionTitle": "A team united by care",
+    "closing": "Together, we turn a shared commitment into thoughtful action for our community.",
+    "roles": {
+      "chairman": "Chairman",
+      "managingTrustee": "Managing trustee",
+      "communityOutreach": "Community outreach",
+      "fieldCoordinator": "Field coordinator",
+      "programAdvisor": "Program advisor",
+      "logisticsRelief": "Logistics & relief"
+    }
   },
   "impact": {
     "title": "Impact rooted in daily action",

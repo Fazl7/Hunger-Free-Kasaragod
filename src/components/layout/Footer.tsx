@@ -19,6 +19,7 @@ export async function Footer() {
         ["/ledger", t("nav.ledger")],
         ["/gallery", t("nav.gallery")],
         ["/stories", t("nav.stories")],
+        ["/team", t("nav.team")],
       ],
     },
     {
