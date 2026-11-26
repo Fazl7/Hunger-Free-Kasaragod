@@ -15,6 +15,7 @@ const members = [
   { name: "Vipin Lal", role: "fieldCoordinator", image: "/team/vipin-lal-portrait.jpg", width: 768, height: 1327, position: "center 35%" },
   { name: "Charuseetha Meloth", role: "programAdvisor", image: "/team/charuseetha-meloth.jpg", width: 768, height: 1024, position: "center 30%" },
   { name: "Abdul Rahman Murshid", role: "logisticsRelief", image: "/team/abdul-rahman-murshid-portrait.jpg", width: 544, height: 1350, position: "center 30%" },
+  { name: "Anaswara K V", role: "intern", image: "/team/anaswara-k-v.jpg", width: 768, height: 768, position: "center 35%" },
 ] as const;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -53,7 +54,7 @@ export default async function TeamPage({ params }: Props) {
             <h2 id="team-members-heading" className="mt-3 text-3xl font-semibold sm:text-4xl">{t("sectionTitle")}</h2>
           </div>
 
-          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {members.map((member, index) => (
               <li
                 key={member.name}

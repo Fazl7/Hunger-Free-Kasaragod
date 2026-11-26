@@ -35,6 +35,19 @@ export type VideoRow = {
   created_at: string;
 };
 
+export type PhotoRow = {
+  id: string;
+  photo_url: string;
+  thumb_url: string;
+  width: number;
+  height: number;
+  caption_en: string | null;
+  caption_ml: string | null;
+  is_published: boolean;
+  sort_order: number;
+  created_at: string;
+};
+
 export type PressReleaseRow = {
   id: string;
   slug: string;
@@ -85,5 +98,6 @@ export type ImpactStats = {
 /** Public columns for ledger lists. */
 export const LEDGER_COLUMNS = "id,entry_date,quantity,place,program_id,note,photo_url,created_at";
 export const VIDEO_COLUMNS = "id,youtube_id,title_en,title_ml,is_featured,is_published,sort_order,created_at";
+export const PHOTO_COLUMNS = "id,photo_url,thumb_url,width,height,caption_en,caption_ml,is_published,sort_order,created_at";
 export const PRESS_LIST_COLUMNS =
   "id,slug,title_en,title_ml,body_en,body_ml,photo_thumb_url,photo_url,photo_width,photo_height,photo_alt,release_date,place,meta_description,is_published,created_at,updated_at";

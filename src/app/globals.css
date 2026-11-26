@@ -193,5 +193,12 @@ html[lang="ml"] #hero-title { font-size: clamp(2.1rem, 10.5vw, 5rem); line-heigh
 }
 @keyframes burst { 30% { opacity: 1; } to { opacity: 0; stroke-dashoffset: 0; } }
 
+/* Generic entrance (admin lists, gallery tabs). */
+@keyframes rise-in { from { transform: translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* Gallery lightbox */
+@keyframes lightbox-in { from { transform: scale(0.96); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes lightbox-swap { from { transform: scale(0.98); opacity: 0.2; } to { transform: none; opacity: 1; } }
+
 /* Admin toasts */
 @keyframes toast-in { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }

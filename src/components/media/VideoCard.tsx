@@ -23,7 +23,12 @@ export function VideoCard({
       )}
     >
       <YouTubeFacade id={id} title={title} playLabel={playLabel} large={large} />
-      <h3 className={cn("px-3 pt-3 pb-2 leading-snug font-semibold text-ink", large ? "text-xl" : "line-clamp-2 text-base")}>{title}</h3>
+      {/* Padding lives on the wrapper: inside a line-clamped box it would let part of the hidden 3rd line show through. */}
+      <div className="px-3 pt-3 pb-2.5">
+        <h3 title={large ? undefined : title} className={cn("leading-snug font-semibold text-ink", large ? "text-xl" : "line-clamp-2 text-base")}>
+          {title}
+        </h3>
+      </div>
     </article>
   );
 }

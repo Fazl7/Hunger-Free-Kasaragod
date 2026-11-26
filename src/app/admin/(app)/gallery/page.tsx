@@ -10,6 +10,7 @@ import { revalidatePublic } from "@/lib/supabase/browser";
 import { VIDEO_COLUMNS, type VideoRow } from "@/lib/supabase/types";
 import { parseYouTubeId, thumbnailUrl, watchUrl } from "@/lib/youtube";
 import { cn } from "@/lib/utils";
+import { PhotoManager } from "./PhotoManager";
 
 type Parsed = { line: string; id: string | null; status: "new" | "duplicate" | "exists" | "invalid" };
 type Meta = { title?: string | null; failed?: boolean; titleEn: string; titleMl: string; featured: boolean };
@@ -111,7 +112,7 @@ function VideoItem({
 }
 
 /* ───────────────────────────────────── Page ───────────────────────────────────── */
-export default function AdminGalleryPage() {
+function VideoManager({ onCount }: { onCount: (published: number, total: number) => void }) {
   const { sb } = useAdminAuth();
   const toast = useToast();
   const confirm = useConfirm();
@@ -135,6 +136,10 @@ export default function AdminGalleryPage() {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- initial fetch
     void load();
   }, [load]);
+
+  useEffect(() => {
+    if (videos) onCount(videos.filter((v) => v.is_published).length, videos.length);
+  }, [videos, onCount]);
 
   /* Parse the paste box: one link per line. */
   const parsed: Parsed[] = useMemo(() => {
@@ -258,18 +263,6 @@ export default function AdminGalleryPage() {
 
   return (
     <div className="space-y-8">
-      <header className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <h1 className="text-3xl font-semibold sm:text-4xl">Video gallery</h1>
-          <p className="mt-1 text-ink-soft">
-            {videos ? `${videos.filter((v) => v.is_published).length} published · ${videos.length} total` : "Loading…"}
-          </p>
-        </div>
-        <a href="/en/gallery" target="_blank" rel="noopener" className={cn(ui.btn, ui.ghost)}>
-          View gallery <Icon name="arrowRight" size={16} />
-        </a>
-      </header>
-
       {/* ── Paste box ── */}
       <section className={ui.card} aria-labelledby="add-title">
         <h2 id="add-title" className="text-xl font-semibold">Add videos</h2>
@@ -390,6 +383,85 @@ export default function AdminGalleryPage() {
           </ul>
         )}
       </section>
+    </div>
+  );
+}
+
+/* ───────────────────────────────────── Page ───────────────────────────────────── */
+type Tab = "photos" | "videos";
+type Counts = Record<Tab, { published: number; total: number } | null>;
+
+export default function AdminGalleryPage() {
+  const [tab, setTab] = useState<Tab>("photos");
+  const [counts, setCounts] = useState<Counts>({ photos: null, videos: null });
+  const onPhotos = useCallback((published: number, total: number) => setCounts((c) => ({ ...c, photos: { published, total } })), []);
+  const onVideos = useCallback((published: number, total: number) => setCounts((c) => ({ ...c, videos: { published, total } })), []);
+
+  // Remember the open tab in the URL (#videos) so a refresh keeps it.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- read the hash once on mount
+    if (window.location.hash === "#videos") setTab("videos");
+  }, []);
+  const choose = (t: Tab) => {
+    setTab(t);
+    history.replaceState(null, "", `#${t}`);
+  };
+
+  const current = counts[tab];
+  const tabs: { id: Tab; label: string; icon: "camera" | "play" }[] = [
+    { id: "photos", label: "Photos", icon: "camera" },
+    { id: "videos", label: "Videos", icon: "play" },
+  ];
+
+  return (
+    <div className="space-y-6">
+      <header className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h1 className="text-3xl font-semibold sm:text-4xl">Gallery</h1>
+          <p className="mt-1 text-ink-soft">
+            {current ? `${current.published} published · ${current.total} total ${tab}` : "Loading…"}
+          </p>
+        </div>
+        <a href="/en/gallery" target="_blank" rel="noopener" className={cn(ui.btn, ui.ghost)}>
+          View gallery <Icon name="arrowRight" size={16} />
+        </a>
+      </header>
+
+      <div role="tablist" aria-label="Gallery type" className="relative grid w-full max-w-sm grid-cols-2 rounded-full bg-white p-1 ring-1 ring-ink/10">
+        <span
+          aria-hidden
+          className="absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-maroon shadow-[0_6px_16px_-8px_rgba(122,31,31,.7)] transition-transform duration-300 ease-out"
+          style={{ transform: tab === "videos" ? "translateX(100%)" : "none" }}
+        />
+        {tabs.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            role="tab"
+            id={`tab-${t.id}`}
+            aria-selected={tab === t.id}
+            aria-controls={`panel-${t.id}`}
+            onClick={() => choose(t.id)}
+            className={cn(
+              "relative z-10 inline-flex min-h-11 items-center justify-center gap-2 rounded-full text-sm font-semibold transition-colors duration-300",
+              tab === t.id ? "text-cream" : "text-ink-soft hover:text-ink",
+            )}
+          >
+            <Icon name={t.icon} size={16} /> {t.label}
+            {counts[t.id] && (
+              <span className={cn("rounded-full px-1.5 text-xs tabular", tab === t.id ? "bg-cream/20" : "bg-ink/8")}>{counts[t.id]!.total}</span>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Both stay mounted so counts load and unsaved input survives switching tabs. */}
+      <div role="tabpanel" id="panel-photos" aria-labelledby="tab-photos" hidden={tab !== "photos"} className="motion-safe:animate-[rise-in_.35s_ease-out]">
+        <PhotoManager onCount={onPhotos} />
+      </div>
+      <div role="tabpanel" id="panel-videos" aria-labelledby="tab-videos" hidden={tab !== "videos"} className="motion-safe:animate-[rise-in_.35s_ease-out]">
+        <VideoManager onCount={onVideos} />
+      </div>
     </div>
   );
 }

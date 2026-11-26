@@ -6,9 +6,20 @@ import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/ui/PageHero";
+import { ButtonLink } from "@/components/ui/Button";
 import { formatDate, tr } from "@/lib/utils";
 
 type Props = { params: Promise<{ locale: string }> };
+
+const teamPortraits = [
+  { name: "Nirmal Kumar", src: "/team/nirmal-kumar.jpg", position: "center 35%" },
+  { name: "Ahmmed Shareen", src: "/team/ahmmed-shareen.jpg", position: "center 42%" },
+  { name: "Irfad Mayippady", src: "/team/irfad-mayippady.jpg", position: "center 35%" },
+  { name: "Vipin Lal", src: "/team/vipin-lal-portrait.jpg", position: "center 35%" },
+  { name: "Charuseetha Meloth", src: "/team/charuseetha-meloth.jpg", position: "center 30%" },
+  { name: "Abdul Rahman Murshid", src: "/team/abdul-rahman-murshid-portrait.jpg", position: "center 30%" },
+  { name: "Anaswara K V", src: "/team/anaswara-k-v.jpg", position: "center 35%" },
+] as const;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -57,7 +68,29 @@ export default async function StoriesPage({ params }: Props) {
             </ul>
           </section>
         ) : (
-          <p className="rounded-2xl bg-cream-deep/60 p-5 text-base">{t("consentNote")}</p>
+          <div className="overflow-hidden rounded-[var(--radius-card)] border border-maroon/10 bg-cream-deep/60">
+            <div className="grid grid-cols-4 gap-2 p-3 sm:grid-cols-7 sm:gap-3 sm:p-5" aria-label="Live to Smile Foundation team">
+              {teamPortraits.map((person) => (
+                <div key={person.name} className="overflow-hidden rounded-xl bg-white ring-1 ring-ink/8">
+                  <Image
+                    src={person.src}
+                    alt={person.name}
+                    width={768}
+                    height={768}
+                    sizes="(min-width: 640px) 12vw, 22vw"
+                    className="aspect-square w-full object-cover"
+                    style={{ objectPosition: person.position }}
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col items-center gap-3 border-t border-maroon/10 px-5 py-5 text-center sm:flex-row sm:justify-between sm:text-left">
+              <p className="font-display text-lg font-semibold text-ink">{t("teamInvite")}</p>
+              <ButtonLink href="/team" variant="outline" icon="arrowRight" className="shrink-0">
+                {t("teamLink")}
+              </ButtonLink>
+            </div>
+          </div>
         )}
       </article>
       <JsonLd data={graph(breadcrumbSchema(locale, [{ name: "Home", path: "/" }, ...crumbs]))} />

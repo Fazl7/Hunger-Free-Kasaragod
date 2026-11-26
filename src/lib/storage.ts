@@ -27,3 +27,22 @@ export async function uploadImage(file: Blob, opts: { folder?: string; name?: st
   if (error) throw new Error(error.message);
   return sb.storage.from("media").getPublicUrl(path).data.publicUrl;
 }
+
+/**
+ * Delete previously uploaded images by their public URLs (the inverse of `uploadImage`).
+ * URLs that don't point into our bucket are ignored.
+ */
+export async function removeImages(urls: string[]): Promise<void> {
+  const sb = getBrowserSupabase();
+  if (!sb) throw new Error("Storage is not configured.");
+  const marker = "/storage/v1/object/public/media/";
+  const paths = urls
+    .map((u) => {
+      const i = u.indexOf(marker);
+      return i === -1 ? null : decodeURIComponent(u.slice(i + marker.length).split("?")[0]);
+    })
+    .filter((p): p is string => !!p);
+  if (!paths.length) return;
+  const { error } = await sb.storage.from("media").remove(paths);
+  if (error) throw new Error(error.message);
+}

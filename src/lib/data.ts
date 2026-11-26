@@ -3,10 +3,12 @@ import { supabaseConfigured } from "@/lib/supabase/env";
 import { serverSupabase } from "@/lib/supabase/server";
 import {
   LEDGER_COLUMNS,
+  PHOTO_COLUMNS,
   PRESS_LIST_COLUMNS,
   VIDEO_COLUMNS,
   type ImpactStats,
   type LedgerEntryRow,
+  type PhotoRow,
   type PressReleaseRow,
   type ProgramRow,
   type VideoRow,
@@ -68,6 +70,20 @@ export const getVideos = cache(
     return { rows: data as VideoRow[], count: count ?? data.length };
   },
 );
+
+/** Published gallery photos, ordered as the admin arranged them (new uploads go on top). */
+export const getPhotos = cache(async (limit: number): Promise<{ rows: PhotoRow[]; count: number } | null> => {
+  if (!supabaseConfigured) return null;
+  const { data, error, count } = await serverSupabase(["photos"])
+    .from("gallery_photos")
+    .select(PHOTO_COLUMNS, { count: "exact" })
+    .eq("is_published", true)
+    .order("sort_order")
+    .order("created_at", { ascending: false })
+    .limit(limit);
+  if (error) return (log("photos", error), null);
+  return { rows: data as PhotoRow[], count: count ?? data.length };
+});
 
 export const getPressList = cache(async (limit = 60): Promise<PressReleaseRow[] | null> => {
   if (!supabaseConfigured) return null;

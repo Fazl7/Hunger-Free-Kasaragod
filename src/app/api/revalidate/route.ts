@@ -3,7 +3,7 @@ import { supabaseConfigured } from "@/lib/supabase/env";
 import { CACHE_TAGS, userSupabase, type CacheTag } from "@/lib/supabase/server";
 
 /**
- * POST /api/revalidate  { tags: ["ledger" | "videos" | "press" | "programs"] }
+ * POST /api/revalidate  { tags: ["ledger" | "videos" | "photos" | "press" | "programs"] }
  * Called by the admin UI after every save so public pages (and their meta tags
  * for crawlers) refresh immediately. Only a signed-in ADMIN may call it: the
  * bearer token is checked against Supabase and the `admins` allow-list.

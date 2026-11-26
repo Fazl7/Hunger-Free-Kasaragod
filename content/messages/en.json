@@ -10,7 +10,7 @@
     "ledgerTitle": "Distribution Ledger: Every Kit and Meal, Dated",
     "ledgerDescription": "Explore dated distribution records for cooked food, grocery kits and rescued surplus food across Kasaragod district.",
     "galleryTitle": "Gallery: Moments from the Field",
-    "galleryDescription": "See volunteers prepare and serve meals, deliver grocery kits and rescue surplus food across Kasaragod district.",
+    "galleryDescription": "Photos and videos of volunteers preparing and serving meals, delivering grocery kits and rescuing surplus food across Kasaragod district.",
     "pressTitle": "Press Releases",
     "pressDescription": "Official press releases and news from Live to Smile Foundation's Hunger Free Kasaragod initiative, Kasaragod, Kerala.",
     "impactTitle": "Our Impact | Hunger Free Kasaragod",
@@ -264,7 +264,9 @@
     "paragraphThree": "Those encounters transformed a weekly experiment into a six-day-a-week commitment. Today, the team serves 50 freshly cooked breakfasts and 80 lunches on each service day, alongside monthly dry-grocery kits and emergency food rescue. Supported by Kasaragod Municipality, Aster MIMS Foundation and The LaLiT Resort & Spa Bekal, the work is recorded in an open Distribution Ledger. Individual stories are shared only with permission, so the people we serve are represented with dignity.",
     "preview": "We began by listening to people living with hunger on the streets of Kasaragod. Their experiences showed us that reliable, everyday support matters more than occasional charity.",
     "consentNote": "Individual beneficiary stories and photographs are shared only when permission has been given and recorded.",
-    "publishedHeading": "Stories shared with permission"
+    "publishedHeading": "Stories shared with permission",
+    "teamInvite": "Curious about the kind faces behind our work?",
+    "teamLink": "Meet our team"
   },
   "team": {
     "pageTitle": "Meet our team",
@@ -279,7 +281,8 @@
       "communityOutreach": "Community outreach",
       "fieldCoordinator": "Field coordinator",
       "programAdvisor": "Program advisor",
-      "logisticsRelief": "Logistics & relief"
+      "logisticsRelief": "Logistics & relief",
+      "intern": "Intern"
     }
   },
   "impact": {
@@ -418,5 +421,68 @@
     "shareNative": "Share",
     "empty": "No press releases published yet.",
     "back": "All press releases"
+  },
+  "galleryPage": {
+    "title": "Photos & videos from the field",
+    "intro": "A visual record of volunteers preparing meals, delivering grocery kits and rescuing surplus food across Kasaragod district.",
+    "tabsLabel": "Show",
+    "all": "All",
+    "photos": "Photos",
+    "videos": "Videos",
+    "loadMorePhotos": "Load more photos",
+    "loading": "Loading…",
+    "photoError": "Couldn't load more photos.",
+    "photoAlt": "Hunger Free Kasaragod volunteers at work",
+    "open": "View photo: {title}",
+    "position": "{n} of {total}",
+    "prev": "Previous photo",
+    "next": "Next photo",
+    "close": "Close",
+    "empty": "Photos and videos are coming soon.",
+    "error": "Couldn't load the gallery. Please try again shortly.",
+    "latestBoth": "Latest photos & videos",
+    "latestPhotos": "Latest photos"
+  },
+  "shareForm": {
+    "pageTitle": "Share your moment",
+    "pageIntro": "Celebrated with a meal, sponsored a day or volunteered with us? Tell us about it and send a photo. It goes straight to our team on WhatsApp.",
+    "howLabel": "How it works",
+    "how1Title": "Tell us your story",
+    "how1Body": "A few words about the moment, and a photo if you have one.",
+    "how2Title": "Send it on WhatsApp",
+    "how2Body": "WhatsApp opens with your message ready. Review it and tap Send.",
+    "how3Title": "Send your photo",
+    "how3Body": "Right after your message, attach your photo in the same chat with the 📎 icon.",
+    "privacy": "Your message and photo go only to our WhatsApp. Nothing is uploaded to this website. We ask before publishing anything, and we never share photos of the people we serve without their consent.",
+    "formTitle": "Your moment",
+    "name": "Your name",
+    "place": "Place",
+    "occasion": "Occasion",
+    "selectOccasion": "Choose (optional)",
+    "occasions": {
+      "birthday": "Birthday",
+      "wedding": "Wedding",
+      "anniversary": "Anniversary",
+      "memorial": "In memory of someone",
+      "volunteering": "Volunteering",
+      "other": "Something else"
+    },
+    "date": "Date",
+    "story": "Your story",
+    "storyPlaceholder": "What happened, who was there, what it meant to you…",
+    "consent": "Hunger Free Kasaragod may share my photo and story on its website and social media.",
+    "whatsappNote": "This opens WhatsApp with a draft message. Nothing is sent until you tap Send there.",
+    "submit": "Continue to WhatsApp",
+    "whatsappIntro": "Share your moment – Hunger Free Kasaragod",
+    "consentLabel": "OK to publish",
+    "yes": "Yes",
+    "no": "No",
+    "sentTitle": "WhatsApp is open",
+    "sentBody": "Check your message there and tap Send. Thank you for sharing!",
+    "openAgain": "Open WhatsApp",
+    "startOver": "Share another moment",
+    "photoTitle": "Have a photo?",
+    "photoNote": "Send it in the same WhatsApp chat right after your message. Tap the 📎 attach icon and choose your photo.",
+    "photoReminderTitle": "Don't forget your photo"
   }
 }

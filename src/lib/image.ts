@@ -98,6 +98,23 @@ export async function processPressPhoto(file: File): Promise<ProcessedPhoto> {
   return { main, social, thumb, width: m.w, height: m.h };
 }
 
+/** Gallery photo: main (longest side ≤ 1600px) + 800px-wide thumb, metadata stripped. */
+export async function processGalleryPhoto(file: File): Promise<{ main: Blob; thumb: Blob; width: number; height: number }> {
+  const src = await load(file);
+  try {
+    const { w, h } = dims(src);
+    if (!w || !h) throw new Error("Could not read this image.");
+    const s = Math.min(1, 1600 / Math.max(w, h));
+    const m = { w: Math.round(w * s), h: Math.round(h * s) };
+    const main = await encode(draw(src, m.w, m.h), true);
+    const ts = Math.min(1, 800 / w);
+    const thumb = await encode(draw(src, Math.round(w * ts), Math.round(h * ts)), true);
+    return { main, thumb, width: m.w, height: m.h };
+  } finally {
+    if ("close" in src) src.close();
+  }
+}
+
 /** Re-encode ledger evidence as an 800px max-side image, stripping metadata. */
 export async function processLedgerPhoto(file: File): Promise<Blob> {
   const src = await load(file);

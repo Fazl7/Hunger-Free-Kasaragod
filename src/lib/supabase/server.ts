@@ -2,8 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from "./env";
 
 /** Cache tags used for on-demand revalidation (see /api/revalidate). */
-export type CacheTag = "ledger" | "videos" | "press" | "programs";
-export const CACHE_TAGS: CacheTag[] = ["ledger", "videos", "press", "programs"];
+export type CacheTag = "ledger" | "videos" | "photos" | "press" | "programs";
+export const CACHE_TAGS: CacheTag[] = ["ledger", "videos", "photos", "press", "programs"];
 
 /** Fallback refresh window if an on-demand revalidation is ever missed. */
 const REVALIDATE_SECONDS = 300;

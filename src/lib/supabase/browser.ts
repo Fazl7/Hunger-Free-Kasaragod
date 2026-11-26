@@ -18,7 +18,7 @@ export function getBrowserSupabase(): SupabaseClient | null {
 }
 
 /** Ask the server to refresh cached public pages after an admin change. */
-export async function revalidatePublic(tags: ("ledger" | "videos" | "press" | "programs")[]) {
+export async function revalidatePublic(tags: ("ledger" | "videos" | "photos" | "press" | "programs")[]) {
   const sb = getBrowserSupabase();
   const token = (await sb?.auth.getSession())?.data.session?.access_token;
   if (!token) return;

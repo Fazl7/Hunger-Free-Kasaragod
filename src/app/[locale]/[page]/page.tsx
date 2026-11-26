@@ -12,7 +12,6 @@ import { ButtonLink } from "@/components/ui/Button";
  * A real folder (e.g. app/[locale]/donate/) automatically takes precedence.
  */
 const stubRoutes = {
-  "share-your-moment": null,
   privacy: "privacy",
   terms: "terms",
 } as const;
@@ -27,7 +26,6 @@ export function generateStaticParams() {
 async function titleFor(page: string) {
   const nav = await getTranslations("nav");
   const key = stubRoutes[page as keyof typeof stubRoutes];
-  if (page === "share-your-moment") return (await getTranslations("share"))("cta");
   return key ? nav(key) : page;
 }
 

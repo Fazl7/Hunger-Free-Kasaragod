@@ -30,6 +30,7 @@ const staticPaths: { path: string; priority: number; changeFrequency: "daily" | 
   { path: "/partner-with-us", priority: 0.6, changeFrequency: "monthly" },
   { path: "/request-help", priority: 0.6, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.5, changeFrequency: "monthly" },
+  { path: "/share-your-moment", priority: 0.5, changeFrequency: "monthly" },
   ...programs.map((p) => ({ path: `/programs/${p.slug}`, priority: 0.7, changeFrequency: "monthly" as const })),
 ];
 
