@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Icon } from "@/components/icons/Icon";
 import { embedUrl, thumbnailUrl } from "@/lib/youtube";
 import { cn } from "@/lib/utils";
@@ -9,16 +10,15 @@ import { cn } from "@/lib/utils";
  * <YouTubeFacade id="dQw4w9WgXcQ" title="…" />
  *
  * Lightweight stand-in for a YouTube embed: shows only the thumbnail and a play
- * button (one small image, zero YouTube JS). The privacy-enhanced
- * youtube-nocookie iframe is created only when the visitor clicks, so a page of
- * 100 videos never loads 100 iframes. Each card is independent, so several
- * videos can play at the same time.
+ * button. The privacy-enhanced youtube-nocookie iframe is loaded only while its
+ * video modal is open, keeping pages with many videos lightweight.
  */
 export function YouTubeFacade({
   id,
   title,
   playLabel,
   large = false,
+  portrait = false,
   className,
 }: {
   id: string;
@@ -27,23 +27,50 @@ export function YouTubeFacade({
   playLabel: string;
   /** Featured cards ask for the high-resolution thumbnail. */
   large?: boolean;
+  portrait?: boolean;
   className?: string;
 }) {
+  const t = useTranslations("common");
+  const dialog = useRef<HTMLDialogElement>(null);
   const [playing, setPlaying] = useState(false);
-  const [thumb, setThumb] = useState(thumbnailUrl(id, large ? "max" : "hq"));
+  const useMaxThumbnail = large || portrait;
+  const [thumb, setThumb] = useState(thumbnailUrl(id, useMaxThumbnail ? "max" : "hq"));
+
+  const close = useCallback(() => {
+    setPlaying(false);
+    if (dialog.current?.open) dialog.current.close();
+  }, []);
+
+  useEffect(() => {
+    const element = dialog.current;
+    if (!element) return;
+    if (playing && !element.open) element.showModal();
+    else if (!playing && element.open) element.close();
+  }, [playing]);
+
+  useEffect(() => {
+    if (!playing) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown, true);
+    return () => window.removeEventListener("keydown", handleKeyDown, true);
+  }, [close, playing]);
 
   return (
-    <div className={cn("relative aspect-video overflow-hidden rounded-2xl bg-ink", className)}>
-      {playing ? (
-        <iframe
-          src={`${embedUrl(id)}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
-          title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
-          className="absolute inset-0 size-full border-0"
-        />
-      ) : (
+    <>
+      <div
+        className={cn(
+          "relative overflow-hidden bg-black",
+          portrait
+            ? "mx-auto aspect-[9/16] w-full max-h-[70vh] max-w-[39.375vh] rounded-xl md:mx-0 md:max-h-none md:max-w-none"
+            : "aspect-video rounded-2xl",
+          className,
+        )}
+      >
         <button
           type="button"
           onClick={() => setPlaying(true)}
@@ -55,29 +82,71 @@ export function YouTubeFacade({
           <img
             src={thumb}
             alt=""
-            width={large ? 1280 : 480}
-            height={large ? 720 : 360}
+            width={useMaxThumbnail ? 1280 : 480}
+            height={useMaxThumbnail ? 720 : 360}
             loading="lazy"
             decoding="async"
             onLoad={(e) => {
-              // maxresdefault doesn't exist for every video; YouTube returns a 120px placeholder.
-              if (large && e.currentTarget.naturalWidth < 200) setThumb(thumbnailUrl(id, "hq"));
+              // maxresdefault may load as a tiny placeholder when the video has no high-resolution thumbnail.
+              if (useMaxThumbnail && e.currentTarget.naturalWidth < 200) setThumb(thumbnailUrl(id, "hq"));
             }}
             onError={() => setThumb(thumbnailUrl(id, "hq"))}
             className="size-full object-cover transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] motion-safe:group-hover/yt:scale-[1.04]"
           />
-          <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-ink/0" />
           <span
             aria-hidden
             className={cn(
-              "absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-mustard text-ink shadow-[0_10px_30px_-8px_rgba(0,0,0,.6)] transition-transform duration-300 motion-safe:group-hover/yt:scale-110",
-              large ? "size-20" : "size-14",
+              "absolute top-1/2 left-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-mustard text-ink shadow-lg transition-transform duration-300 motion-safe:group-hover/yt:scale-110",
+              large && "size-20",
             )}
           >
             <Icon name="play" size={large ? 32 : 24} className="translate-x-0.5" fill="currentColor" />
           </span>
         </button>
-      )}
-    </div>
+      </div>
+
+      <dialog
+        ref={dialog}
+        aria-label={title}
+        onClose={() => setPlaying(false)}
+        onCancel={(event) => {
+          event.preventDefault();
+          close();
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") {
+            event.preventDefault();
+            close();
+          }
+        }}
+        onClick={(event) => {
+          if (event.target === dialog.current) close();
+        }}
+        className="fixed inset-0 m-0 h-dvh w-screen max-h-dvh max-w-none overflow-hidden border-0 bg-black p-0 text-white backdrop:bg-black/95"
+      >
+        <div className="relative flex h-dvh w-full items-center justify-center">
+          <button
+            type="button"
+            onClick={close}
+            aria-label={t("close")}
+            className="absolute top-4 right-4 z-10 flex size-12 items-center justify-center rounded-full bg-cream text-ink shadow-lg"
+          >
+            <Icon name="close" />
+          </button>
+          {playing && (
+            <div className="relative aspect-[9/16] w-[min(100vw,56.25dvh)] overflow-hidden bg-black md:w-[min(100vw,50.625vh)]">
+              <iframe
+                src={`${embedUrl(id)}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                title={title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+                className="absolute inset-0 size-full border-0"
+              />
+            </div>
+          )}
+        </div>
+      </dialog>
+    </>
   );
 }

@@ -51,7 +51,7 @@ export function GalleryTabs({
         <div
           role="tablist"
           aria-label={labels.group}
-          className="relative grid w-full max-w-md grid-cols-3 rounded-full bg-white/90 p-1.5 shadow-[0_18px_40px_-24px_rgba(122,31,31,.55)] ring-1 ring-ink/8 backdrop-blur"
+          className="relative grid w-full max-w-md grid-cols-3 rounded-full bg-cream/95 p-1.5 shadow-[0_18px_40px_-24px_rgba(122,31,31,.55)] ring-1 ring-ink/8 backdrop-blur"
         >
           <span
             aria-hidden

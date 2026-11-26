@@ -5,18 +5,20 @@ import { useLocale, useTranslations } from "next-intl";
 import { getBrowserSupabase } from "@/lib/supabase/browser";
 import { VIDEO_COLUMNS, type VideoRow } from "@/lib/supabase/types";
 import { pick } from "@/lib/format";
+import { cn } from "@/lib/utils";
 import { VideoCard } from "@/components/media/VideoCard";
 import { Icon } from "@/components/icons/Icon";
 
 const PAGE = 12;
 
-/** Responsive 3/2/1 grid with "Load more" (12 at a time). First page is server-rendered. */
+/** Mobile-first video grid with "Load more" (12 at a time). First page is server-rendered. */
 export function VideoGrid({ initial, total }: { initial: VideoRow[]; total: number }) {
   const t = useTranslations("videos");
   const locale = useLocale();
   const [rows, setRows] = useState(initial);
   const [state, setState] = useState<"idle" | "loading" | "error">("idle");
   const hasMore = rows.length < total;
+  const mobileColumnClass = rows.length > 1 ? "grid-cols-2" : "grid-cols-1";
 
   async function loadMore() {
     const sb = getBrowserSupabase();
@@ -40,12 +42,23 @@ export function VideoGrid({ initial, total }: { initial: VideoRow[]; total: numb
 
   return (
     <>
-      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-busy={state === "loading"}>
+      <ul
+        className={cn(
+          "mx-auto grid w-full max-w-6xl gap-4 md:grid-cols-3 md:gap-5 lg:grid-cols-4 lg:gap-6",
+          mobileColumnClass,
+        )}
+        aria-busy={state === "loading"}
+      >
         {rows.map((v) => {
           const title = pick(v.title_en, v.title_ml, locale) || t("fallbackTitle");
           return (
             <li key={v.id}>
-              <VideoCard id={v.youtube_id} title={title} playLabel={t("play", { title })} />
+              <VideoCard
+                id={v.youtube_id}
+                title={title}
+                playLabel={t("play", { title })}
+                portrait
+              />
             </li>
           );
         })}

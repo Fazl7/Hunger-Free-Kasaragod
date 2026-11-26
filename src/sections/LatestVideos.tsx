@@ -15,7 +15,7 @@ export async function LatestVideos() {
   const count = roundedPlus(result.count);
 
   return (
-    <Section id="videos" tone="deep" labelledBy="videos-title">
+    <Section id="videos" tone="deep" labelledBy="videos-title" className="!py-12 sm:!py-28">
       <div className="container-page">
         <SectionHeading
           id="videos-title"
