@@ -62,6 +62,10 @@ export default async function GalleryPage({ params }: Props) {
     <>
       <PageHero title={g("title")} intro={g("intro")} crumbs={crumbs} />
 
+      <section className="container-page max-w-5xl py-10 sm:py-14">
+        <p className="text-lg leading-relaxed text-ink-soft">{t("context")}</p>
+      </section>
+
       <div className="container-page space-y-16 pt-4 pb-16">
         {featured && featured.rows.length > 0 && (
           <section aria-labelledby="featured-title">
@@ -98,10 +102,6 @@ export default async function GalleryPage({ params }: Props) {
           <p className="rounded-2xl bg-white p-8 text-center text-ink-soft ring-1 ring-ink/8">{failed ? g("error") : g("empty")}</p>
         )}
       </div>
-
-      <section className="container-page max-w-5xl pb-24">
-        <p className="text-lg leading-relaxed text-ink-soft">{t("context")}</p>
-      </section>
 
       <JsonLd
         data={graph(
