@@ -172,7 +172,7 @@ export function LedgerDashboard({
 
       {/* ── Per-program chips + monthly chart ── */}
       {stats && stats.total_entries > 0 && (
-        <section aria-labelledby="breakdown-title" className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+        <section aria-labelledby="breakdown-title" className="grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <div>
             <h2 id="breakdown-title" className="mb-4 font-display text-xl font-semibold">{t("byProgram")}</h2>
             <ul className="flex flex-wrap gap-2">

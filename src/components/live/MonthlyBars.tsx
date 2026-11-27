@@ -33,7 +33,7 @@ export function MonthlyBars({
   const present = SERIES.filter((s) => data.some((m) => m[s.key] > 0));
 
   return (
-    <figure className="rounded-[var(--radius-card)] bg-white p-5 ring-1 ring-ink/8 sm:p-6">
+    <figure className="min-w-0 rounded-[var(--radius-card)] bg-white p-5 ring-1 ring-ink/8 sm:p-6">
       <figcaption className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
         <h3 className="font-display text-xl font-semibold">{labels.title}</h3>
         {present.length > 1 && (
@@ -48,48 +48,52 @@ export function MonthlyBars({
         )}
       </figcaption>
 
-      <div aria-hidden className="relative mt-6 flex h-40 items-end gap-1.5 border-b border-ink/15 sm:gap-2.5">
-        {data.map((m) => {
-          const isActive = active === m.month;
-          return (
-            <div
-              key={m.month}
-              className="group relative flex h-full flex-1 cursor-default flex-col justify-end"
-              onPointerEnter={() => setActive(m.month)}
-              onPointerLeave={() => setActive(null)}
-            >
-              {m.month === peak.month && !active && (
-                <span className="mb-1 text-center text-[0.7rem] font-semibold text-ink tabular">{formatCount(m.total, locale)}</span>
-              )}
-              <div
-                className="flex flex-col-reverse gap-[2px] overflow-hidden rounded-t-[4px] transition-opacity"
-                style={{ height: `${(m.total / max) * 100}%`, opacity: active && !isActive ? 0.45 : 1 }}
-              >
-                {SERIES.map((s) =>
-                  m[s.key] > 0 ? <span key={s.key} style={{ flexGrow: m[s.key], background: s.color, minHeight: 2 }} /> : null,
-                )}
-              </div>
-              {isActive && (
-                <div className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-max -translate-x-1/2 rounded-xl bg-ink px-3 py-2 text-xs text-cream shadow-lg">
-                  <p className="font-semibold">{formatMonth(m.month, locale)}</p>
-                  {SERIES.filter((s) => m[s.key] > 0).map((s) => (
-                    <p key={s.key} className="flex items-center gap-1.5">
-                      <span className="size-2 rounded-sm" style={{ background: s.color }} />
-                      {labels[s.key]}: <span className="tabular">{formatCount(m[s.key], locale)}</span>
-                    </p>
-                  ))}
+      <div className="-mx-1 min-w-0 overflow-x-auto px-1 pb-1">
+        <div className="min-w-[32rem] sm:min-w-0">
+          <div aria-hidden className="relative mt-6 flex h-40 items-end gap-1.5 border-b border-ink/15 sm:gap-2.5">
+            {data.map((m) => {
+              const isActive = active === m.month;
+              return (
+                <div
+                  key={m.month}
+                  className="group relative flex h-full flex-1 cursor-default flex-col justify-end"
+                  onPointerEnter={() => setActive(m.month)}
+                  onPointerLeave={() => setActive(null)}
+                >
+                  {m.month === peak.month && !active && (
+                    <span className="mb-1 text-center text-[0.7rem] font-semibold text-ink tabular">{formatCount(m.total, locale)}</span>
+                  )}
+                  <div
+                    className="flex flex-col-reverse gap-[2px] overflow-hidden rounded-t-[4px] transition-opacity"
+                    style={{ height: `${(m.total / max) * 100}%`, opacity: active && !isActive ? 0.45 : 1 }}
+                  >
+                    {SERIES.map((s) =>
+                      m[s.key] > 0 ? <span key={s.key} style={{ flexGrow: m[s.key], background: s.color, minHeight: 2 }} /> : null,
+                    )}
+                  </div>
+                  {isActive && (
+                    <div className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-max -translate-x-1/2 rounded-xl bg-ink px-3 py-2 text-xs text-cream shadow-lg">
+                      <p className="font-semibold">{formatMonth(m.month, locale)}</p>
+                      {SERIES.filter((s) => m[s.key] > 0).map((s) => (
+                        <p key={s.key} className="flex items-center gap-1.5">
+                          <span className="size-2 rounded-sm" style={{ background: s.color }} />
+                          {labels[s.key]}: <span className="tabular">{formatCount(m[s.key], locale)}</span>
+                        </p>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-      <div aria-hidden className="mt-2 flex gap-1.5 sm:gap-2.5">
-        {data.map((m) => (
-          <span key={m.month} className="flex-1 truncate text-center text-[0.65rem] text-ink-soft sm:text-xs">
-            {formatMonth(m.month, locale, "short")}
-          </span>
-        ))}
+              );
+            })}
+          </div>
+          <div aria-hidden className="mt-2 flex gap-1.5 sm:gap-2.5">
+            {data.map((m) => (
+              <span key={m.month} className="flex-1 text-center text-[0.65rem] text-ink-soft sm:text-xs">
+                {formatMonth(m.month, locale, "short")}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
 
       <table className="sr-only">
